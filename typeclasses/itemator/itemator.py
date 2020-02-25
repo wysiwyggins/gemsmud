@@ -59,7 +59,8 @@ class Item:
 
     
     def generateSciFiBook(self):
-        bookDescription = " "
+        bookText = " "
+        bookDescription = "A paperback book"
         random.seed(self.seed)
         color = self.getColor();
         bookCorpusFO = open("scifi_book_corpus.txt")
@@ -67,12 +68,14 @@ class Item:
         text_model = markovify.NewlineText(text)
         for i in range(4):
             try:
-                bookDescription += text_model.make_sentence(tries=100) + " "
+                bookText += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                bookDescription += "A fine book about rockets. "
+                bookText += "A fine book about rockets. "
         bookCorpusFO.close()
         self.name = color + "book"
         self.description = bookDescription
+        self.db.readable_text = bookText
+        self.typeclass = typeclasses.objects.Readable
 
 
     def getSubstance(self):
