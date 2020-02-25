@@ -170,14 +170,6 @@ class Mirror(DefaultObject):
 
 
 class CmdActivateItemator(CmdSet):
-     """
-    A CmdSet for itemators.
-   
-    Usage:
-      activate [obj]
-
-    generate a new object.
-    """
 
     key = "activate"
     locks = "cmd:all()"
