@@ -168,6 +168,41 @@ class Mirror(DefaultObject):
         self.msg("You peer into the mirror. Describe what you see.")
         self.execute_cmd(setdesc()) #I am not doing this correctly yet. 
 
+
+class CmdActivateItemator(CmdSet):
+    """
+    A CmdSet for itemators.
+    """
+    Usage:
+      activate [obj]
+
+    generate a new object.
+    """
+
+    key = "activate"
+    locks = "cmd:all()"
+
+    def func(self):
+        """
+        Implements the activate command.
+        """
+
+        if self.args:
+            obj = self.caller.search(self.args.strip())
+        else:
+            obj = self.obj
+        if not obj:
+            return
+        itemator.Item.GenerateItem()
+
+
+class Itemator(DefaultObject):
+    def at_cmdset_creation(self):
+        """
+        Called when the cmdset is created.
+        """
+        self.add(CmdActivateItemator())
+
 # -------------------------------------------------------------
 #
 # Readable object
