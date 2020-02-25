@@ -1,3 +1,4 @@
+from evennia import create_object
 import random
 import markovify
 from evennia.prototypes.spawner import spawn
@@ -19,7 +20,7 @@ class Item:
         else:
             self.generateGarment() 
 
-    self.weapon_proto = {
+    self.item_proto = {
         "key": self.name,
         "typeclass": self.typeclass,
         "desc": self.description,
