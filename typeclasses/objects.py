@@ -169,7 +169,7 @@ class Mirror(DefaultObject):
         self.execute_cmd(setdesc()) #I am not doing this correctly yet. 
 
 
-class CmdActivateItemator(CmdSet):
+class CmdActivate(Command):
 
     key = "activate"
     locks = "cmd:all()"
@@ -187,6 +187,17 @@ class CmdActivateItemator(CmdSet):
             return
         itemator.Item.GenerateItem()
 
+
+class CmdSetItemator(CmdSet):
+    """
+    A CmdSet for itemators.
+    """
+
+    def at_cmdset_creation(self):
+        """
+        Called when the cmdset is created.
+        """
+        self.add(CmdActivate())
 
 class Itemator(DefaultObject):
     def at_cmdset_creation(self):
