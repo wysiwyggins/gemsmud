@@ -205,7 +205,6 @@ class Itemator(DefaultObject):
         """
         Called when the cmdset is created.
         """
-        super().at_object_creation()
         self.cmdset.add_default(CmdSetItemator, permanent=True)
 
 # -------------------------------------------------------------
