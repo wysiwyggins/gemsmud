@@ -138,7 +138,10 @@ class HybridRoom(DefaultRoom):
     time. It also allows for "details", together with a slightly modified
     look command.
     """
+""" 
 
+    #no idea why weather won't work
+    
     def at_object_creation(self):
         "called only when the object is first created"
         TICKER_HANDLER.add(60*5, self.at_weather_update)
@@ -147,7 +150,7 @@ class HybridRoom(DefaultRoom):
         "ticked at regular intervals"
         echo = random.choice(ECHOES)
         self.msg_contents(echo)
-
+ """
     def at_object_creation(self):
         """Called when room is first created only."""
         self.db.spring_desc = ""
