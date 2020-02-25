@@ -162,7 +162,7 @@ class Object(DefaultObject):
     pass
 
 
-class mirror(DefaultObject):
+class Mirror(DefaultObject):
 
     def at_desc(looker=None):
         msg("You peer into the mirror. Describe what you see.")
