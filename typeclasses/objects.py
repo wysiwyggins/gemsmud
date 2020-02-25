@@ -166,7 +166,7 @@ class Mirror(DefaultObject):
 
     def at_desc(self, looker=None):
         self.msg("You peer into the mirror. Describe what you see.")
-        self.execute_cmd(setdesc())
+        self.execute_cmd(setdesc()) #I am not doing this correctly yet. 
 
 # -------------------------------------------------------------
 #
