@@ -186,7 +186,7 @@ class CmdActivate(Command):
             obj = self.obj
         if not obj:
             return
-        itemator.Item.GenerateItem()
+        self.itemator.Item.GenerateItem()
 
 
 class CmdSetItemator(CmdSet):
