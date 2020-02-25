@@ -11,6 +11,7 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
+import typeclasses.itemator
 
 
 class Object(DefaultObject):
@@ -204,7 +205,8 @@ class Itemator(DefaultObject):
         """
         Called when the cmdset is created.
         """
-        self.add(CmdActivateItemator())
+        super().at_object_creation()
+        self.cmdset.add_default(CmdSetItemator, permanent=True)
 
 # -------------------------------------------------------------
 #
