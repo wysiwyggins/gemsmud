@@ -170,9 +170,9 @@ class Mirror(DefaultObject):
 
 
 class CmdActivateItemator(CmdSet):
-    """
+     """
     A CmdSet for itemators.
-    """
+   
     Usage:
       activate [obj]
 
