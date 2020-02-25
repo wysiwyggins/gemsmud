@@ -180,11 +180,14 @@ class CmdActivate(Command):
         Implements the activate command.
         """
 
-        if self.args:
-            obj = self.caller.search(self.args.strip())
-        else:
-            obj = self.obj
+        if not self.args:
+            self.caller.msg("What do you want to activate?")
+            return
+        obj = self.caller.search(self.args.strip())
         if not obj:
+            return
+        if obj != self.obj:
+            self.caller.msg("It doesn't seem to be functioning.")
             return
         self.itemator.Item.GenerateItem()
 
@@ -205,7 +208,7 @@ class Itemator(DefaultObject):
         """
         Called when the cmdset is created.
         """
-        self.cmdset.add_default(CmdSetItemator, permanent=True)
+        self.cmdset.add(CmdSetItemator, permanent=True)
 
 # -------------------------------------------------------------
 #
