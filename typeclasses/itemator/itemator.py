@@ -29,7 +29,7 @@ class Item:
         return self.item_proto
     
     def generateGarment(self):
-        clothesFO = open(settings.EVENNIA_DIR + "/typeclasses/word_lists/clothes.txt")
+        clothesFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/clothes.txt")
         clothesList = list(clothesFO)
         color = self.getColor()
         clothesSelection = random.randint(0, len(clothesList) - 1)
@@ -46,7 +46,7 @@ class Item:
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
-        talismanFO = open(settings.EVENNIA_DIR + "/typeclasses/word_lists/word_lists/talismans.txt")
+        talismanFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/talismans.txt")
         talismanList = list(talismanFO)
         selection = random.randint(0, len(talismanList) - 1)
         talisman = talismanList[selection]
@@ -61,7 +61,7 @@ class Item:
         bookText = " "
         bookDescription = "A paperback book"
         color = self.getColor()
-        bookCorpusFO = open(settings.EVENNIA_DIR + "/typeclasses/word_lists/scifi_book_corpus.txt")
+        bookCorpusFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
         for i in range(4):
@@ -73,11 +73,11 @@ class Item:
         self.item_name = color + "book"
         self.item_description = bookDescription
         self.db.readable_text = bookText
-        self.item_typeclass = settings.EVENNIA_DIR + "t/ypeclasses/word_lists/typeclasses.objects.Readable"
+        self.item_typeclass = "/home/wwiggins/GEMS-dev/GEMS/typeclasses.objects.Readable"
 
 
     def getSubstance(self):
-        substanceFO = open(settings.EVENNIA_DIR + "/word_lists/substances.txt")
+        substanceFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/substances.txt")
         substanceList = list(substanceFO)
         selection = random.randint(0, len(substanceList) - 1)
         substance = substanceList[selection]
@@ -85,7 +85,7 @@ class Item:
         return substance
 
     def getAdjective(self, reversed):
-        adjectiveFO = open(settings.EVENNIA_DIR + "/typeclasses/word_lists/adjectives.txt")
+        adjectiveFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/adjectives.txt")
         adjectiveList = list(adjectiveFO)
         selection = random.randint(0, len(adjectiveList) - 1)
         if reversed == True:
@@ -96,7 +96,7 @@ class Item:
         return adjective
 
     def getColor(self):
-        colorsFO = open(settings.EVENNIA_DIR + "/typeclasses/word_lists/colors.txt")
+        colorsFO = open("/home/wwiggins/GEMS-dev/GEMS/typeclasses/word_lists/colors.txt")
         colorsList = list(colorsFO)
         colorsSelection = random.randint(0, len(colorsList) - 1)
         color = colorsList[colorsSelection]
