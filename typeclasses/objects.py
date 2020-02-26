@@ -247,7 +247,7 @@ class CmdRead(Command):
             string = "You read |C%s|n:\n  %s" % (obj.key, readtext)
         else:
             string = "There is nothing to read on %s." % obj.key
-        self.caller.msg(string, options={"raw": True})
+        self.caller.msg(string)
 
 
 class CmdSetReadable(CmdSet):
