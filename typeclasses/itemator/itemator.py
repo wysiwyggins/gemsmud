@@ -5,6 +5,7 @@ from django.conf import settings
 
 
 
+
 class Item:
     def __init__(self):
         self.item_name = "horse"
