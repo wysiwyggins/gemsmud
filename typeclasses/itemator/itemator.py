@@ -11,15 +11,12 @@ class Item:
         self.item_name = "horse"
         self.item_description = "A lovely toy horse"
         self.item_typeclass = "typeclasses.objects.Object"
-        self.db.readable_text = "It's blank"
     
     def generateItem(self):
         
         itemType = random.randint(0, 4)
         if itemType <= 2:
             self.generateTalisman()
-        elif itemType == 3:
-            self.generateSciFiBook()
         else:
             self.generateGarment()
 
