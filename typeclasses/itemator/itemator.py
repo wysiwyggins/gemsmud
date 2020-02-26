@@ -88,8 +88,8 @@ class Item:
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " " + talisman + " made of " + color + substance + "."
 
-    
-   """  def generateSciFiBook(self):
+    """  
+    def generateSciFiBook(self):
         bookText = " "
         bookDescription = "A paperback book"
         color = self.getColor()
