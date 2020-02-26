@@ -11,7 +11,7 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
-import typeclasses.itemator.itemator
+from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
 
 
@@ -172,7 +172,7 @@ class Mirror(DefaultObject):
 
 
 class CmdActivate(Command):
-    newItem = itemator.Item()
+    newItem = Item()
     key = "activate"
     locks = "cmd:all()"
 
