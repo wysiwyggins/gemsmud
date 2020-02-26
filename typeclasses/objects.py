@@ -12,6 +12,7 @@ inheritance.
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
 from typeclasses.itemator.itemator import Item
+from evennia.prototypes.spawner import spawn
 
 
 class Object(DefaultObject):
@@ -176,6 +177,7 @@ class CmdActivate(Command):
     locks = "cmd:all()"
 
     def func(self):
+        item_proto = Item.generateItem()
         """
         Implements the activate command.
         """
@@ -189,7 +191,8 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-        self.Item.GenerateItem()
+
+        spawn(item_proto)
 
 
 class CmdSetItemator(CmdSet):

@@ -1,47 +1,47 @@
 from evennia import create_object
 import random
 import markovify
-from evennia.prototypes.spawner import spawn
+
+
 
 class Item:
     def __init__(self):
-        self.seed = 0
-        self.item-name = "horse"
-        self.item-description = "A lovely toy horse"
-        self.item-typeclass = typeclasses.objects.Object
+        self.item_name = "horse"
+        self.item_description = "A lovely toy horse"
+        self.item_typeclass = "typeclasses.objects.Object"
     
-def GenerateItem(self):
-    itemType = random.randint(0, 4)
-    if itemType <= 2:
-        self.generateTalisman()
-    elif itemType == 3:
-        self.generateBook()
-    else:
-        self.generateGarment()
+    def generateItem(self):
+        
+        itemType = random.randint(0, 4)
+        if itemType <= 2:
+            self.generateTalisman()
+        elif itemType == 3:
+            self.generateSciFiBook()
+        else:
+            self.generateGarment()
 
-    self.item_proto = {
-        "key": item-name,
-        "typeclass": item-typeclass,
-        "desc": description,
-        "location": item-description.location
-    }
+        self.item_proto = {
+            "key": self.item_name,
+            "typeclass": self.item_typeclass,
+            "desc": self.item_description,
+        }
+        return self.item_proto
     
     def generateGarment(self):
         clothesFO = open("clothes.txt")
         clothesList = list(clothesFO)
-        color = self.getColor();
+        color = self.getColor()
         clothesSelection = random.randint(0, len(clothesList) - 1)
         clothingItem = clothesList[clothesSelection]
         clothingItem = clothingItem.rstrip("\n")
-        self.item-name = clothingItem
+        self.item_name = clothingItem
         clothingDescription = color + " " + clothingItem
         clothingDescription = self.addAorAn(clothingItem)
-        self.item-description = clothingDescription
+        self.item_description = clothingDescription
         clothesFO.close()
 
 
-    def GenerateTalisman(substance):
-        talismanDescription = " "
+    def generateTalisman(self):
         random.seed(self.seed)
         color = self.getColor()
         substance = self.getSubstance()
@@ -50,18 +50,17 @@ def GenerateItem(self):
         talismanList = list(talismanFO)
         selection = random.randint(0, len(talismanList) - 1)
         talisman = talismanList[selection]
-        talisman = item.rstrip("\n")
+        talisman = talisman.rstrip("\n")
         talismanFO.close()
-        self.item-name = talisman
+        self.item_name = talisman
         anAdvective = self.addAorAn(adjective)
-        self.item-description = anAdvective + " " + talisman + " made of " + color + substance + "."
+        self.item_description = anAdvective + " " + talisman + " made of " + color + substance + "."
 
     
     def generateSciFiBook(self):
         bookText = " "
         bookDescription = "A paperback book"
-        random.seed(self.seed)
-        color = self.getColor();
+        color = self.getColor()
         bookCorpusFO = open("scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
@@ -71,10 +70,10 @@ def GenerateItem(self):
             except TypeError:
                 bookText += "A fine book about rockets. "
         bookCorpusFO.close()
-        self.item-name = color + "book"
-        self.item-description = bookDescription
+        self.item_name = color + "book"
+        self.item_description = bookDescription
         self.db.readable_text = bookText
-        self.item-typeclass = typeclasses.objects.Readable
+        self.item_typeclass = "typeclasses.objects.Readable"
 
 
     def getSubstance(self):
@@ -97,7 +96,6 @@ def GenerateItem(self):
         return adjective
 
     def getColor(self):
-        random.seed(self.seed)
         colorsFO = open("colors.txt")
         colorsList = list(colorsFO)
         colorsSelection = random.randint(0, len(colorsList) - 1)
@@ -112,9 +110,5 @@ def GenerateItem(self):
         elif word[-1] != "s":
             word = "a " + word
         return word
-
- 
-newItem = itemator.Item()
-newItem.generateItem(seed)
-print(newItem)
-spawn(self.item_proto)
+    
+    
