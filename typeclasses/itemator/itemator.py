@@ -57,7 +57,7 @@ class Item:
         self.item_description = anAdvective + " " + talisman + " made of " + color + substance + "."
 
     
-    def generateSciFiBook(self):
+   """  def generateSciFiBook(self):
         bookText = " "
         bookDescription = "A paperback book"
         color = self.getColor()
@@ -73,7 +73,7 @@ class Item:
         self.item_name = color + "book"
         self.item_description = bookDescription
         self.db.readable_text = bookText
-        self.item_typeclass = "typeclasses.objects.Readable"
+        self.item_typeclass = "typeclasses.objects.Readable" """
 
 
     def getSubstance(self):
