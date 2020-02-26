@@ -11,7 +11,7 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
-from typeclasses.itemator import Item
+from typeclasses.itemator.itemator import Item
 
 
 class Object(DefaultObject):
