@@ -4,12 +4,11 @@ import markovify
 from evennia.prototypes.spawner import spawn
 
 class Item:
-    """ def __init__(self):
+    def __init__(self):
         self.seed = 0
-        self.name = "horse"
-        self.kind = "Human"
-        self.description = "A lovely toy horse"
-        self.typeclass = typeclasses.objects.Object """
+        self.item-name = "horse"
+        self.item-description = "A lovely toy horse"
+        self.item-typeclass = typeclasses.objects.Object
     
 def GenerateItem(self):
     itemType = random.randint(0, 4)
@@ -19,10 +18,6 @@ def GenerateItem(self):
         self.generateBook()
     else:
         self.generateGarment()
-
-    self.item-name = "name"
-    self.item-typeclass = typeclasses.objects.DefaultObject
-    self.item-description = "an object"
 
     self.item_proto = {
         "key": item-name,
@@ -38,10 +33,10 @@ def GenerateItem(self):
         clothesSelection = random.randint(0, len(clothesList) - 1)
         clothingItem = clothesList[clothesSelection]
         clothingItem = clothingItem.rstrip("\n")
-        self.name = clothingItem
+        self.item-name = clothingItem
         clothingDescription = color + " " + clothingItem
         clothingDescription = self.addAorAn(clothingItem)
-        self.description = clothingDescription
+        self.item-description = clothingDescription
         clothesFO.close()
 
 
@@ -51,7 +46,7 @@ def GenerateItem(self):
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
-        talismanFO = open("word_lists/talismans.txt")
+        talismanFO = open("talismans.txt")
         talismanList = list(talismanFO)
         selection = random.randint(0, len(talismanList) - 1)
         talisman = talismanList[selection]
