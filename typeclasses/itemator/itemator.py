@@ -56,7 +56,6 @@ class Item:
             "key": self.item_name,
             "typeclass": self.item_typeclass,
             "desc": self.item_description,
-            "readable_text": self.db.readable_text
         }
         return self.item_proto
     
