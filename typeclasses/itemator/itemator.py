@@ -42,7 +42,6 @@ class Item:
 
 
     def generateTalisman(self):
-        random.seed(self.seed)
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
