@@ -177,7 +177,7 @@ class CmdActivate(Command):
     locks = "cmd:all()"
 
     def func(self):
-        item_proto = Item.generateItem()
+        item_proto = self.Item.generateItem()
         """
         Implements the activate command.
         """
