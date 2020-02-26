@@ -11,7 +11,7 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
-from typeclasses.itemator.itemator import Item
+import typeclasses.itemator.itemator
 from evennia.prototypes.spawner import spawn
 
 
@@ -168,11 +168,11 @@ class Mirror(DefaultObject):
 
     def at_desc(self, looker=None):
         self.msg("You peer into the mirror. Describe what you see.")
-        self.execute_cmd(setdesc()) #I am not doing this correctly yet. 
+        self.execute_cmd(setdesc) #I am not doing this correctly yet. 
 
 
 class CmdActivate(Command):
-
+    newItem = itemator.Item()
     key = "activate"
     locks = "cmd:all()"
 
