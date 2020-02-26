@@ -53,8 +53,8 @@ class Item:
         talisman = talisman.rstrip("\n")
         talismanFO.close()
         self.item_name = talisman
-        anAdvective = self.addAorAn(adjective)
-        self.item_description = anAdvective + " " + talisman + " made of " + color + substance + "."
+        anAdjective = self.addAorAn(adjective)
+        self.item_description = anAdjective + " " + talisman + " made of " + color + substance + "."
 
     
    """  def generateSciFiBook(self):
