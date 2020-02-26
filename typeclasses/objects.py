@@ -11,7 +11,7 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
-import typeclasses.itemator
+from typeclasses.itemator import Item
 
 
 class Object(DefaultObject):
@@ -189,7 +189,7 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-        self.itemator.Item.GenerateItem()
+        self.Item.GenerateItem()
 
 
 class CmdSetItemator(CmdSet):
