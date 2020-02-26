@@ -13,7 +13,7 @@ inheritance.
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
-evennia.utils.logger import log_warn
+from evennia.utils.logger import log_warn
 
 
 class Object(DefaultObject):
