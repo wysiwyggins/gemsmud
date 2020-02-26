@@ -12,6 +12,38 @@ class Item:
         self.item_description = "A lovely toy horse"
         self.item_typeclass = "typeclasses.objects.Object"
     
+    def getSubstance(self):
+        substanceFO = open("typeclasses/itemator/word_lists/substances.txt")
+        substanceList = list(substanceFO)
+        selection = random.randint(0, len(substanceList) - 1)
+        substance = substanceList[selection]
+        substance = substance.rstrip("\n")
+        return substance
+
+    def getAdjective(self):
+        adjectiveFO = open("typeclasses/itemator/word_lists/adjectives.txt")
+        adjectiveList = list(adjectiveFO)
+        selection = random.randint(0, len(adjectiveList) - 1)
+        adjective = adjectiveList[selection]
+        adjective = adjective.rstrip("\n")
+        return adjective
+
+    def getColor(self):
+        colorsFO = open("typeclasses/itemator/word_lists/colors.txt")
+        colorsList = list(colorsFO)
+        colorsSelection = random.randint(0, len(colorsList) - 1)
+        color = colorsList[colorsSelection]
+        color = color.rstrip("\n")
+        colorsFO.close()
+        return color
+
+    def addAorAn(word):
+        if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
+            word = "an " + word
+        elif word[-1] != "s":
+            word = "a " + word
+        return word
+
     def generateItem(self):
         
         itemType = random.randint(0, 4)
@@ -75,37 +107,5 @@ class Item:
         self.db.readable_text = bookText
         self.item_typeclass = "typeclasses.objects.Readable" """
 
-
-    def getSubstance(self):
-        substanceFO = open("typeclasses/itemator/word_lists/substances.txt")
-        substanceList = list(substanceFO)
-        selection = random.randint(0, len(substanceList) - 1)
-        substance = substanceList[selection]
-        substance = substance.rstrip("\n")
-        return substance
-
-    def getAdjective(self):
-        adjectiveFO = open("typeclasses/itemator/word_lists/adjectives.txt")
-        adjectiveList = list(adjectiveFO)
-        selection = random.randint(0, len(adjectiveList) - 1)
-        adjective = adjectiveList[selection]
-        adjective = adjective.rstrip("\n")
-        return adjective
-
-    def getColor(self):
-        colorsFO = open("typeclasses/itemator/word_lists/colors.txt")
-        colorsList = list(colorsFO)
-        colorsSelection = random.randint(0, len(colorsList) - 1)
-        color = colorsList[colorsSelection]
-        color = color.rstrip("\n")
-        colorsFO.close()
-        return color
-
-    def addAorAn(self, word):
-        if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
-            word = "an " + word
-        elif word[-1] != "s":
-            word = "a " + word
-        return word
     
     
