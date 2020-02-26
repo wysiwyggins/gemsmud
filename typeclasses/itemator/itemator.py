@@ -84,14 +84,11 @@ class Item:
         substance = substance.rstrip("\n")
         return substance
 
-    def getAdjective(self, reversed):
+    def getAdjective(self):
         adjectiveFO = open("typeclasses/itemator/word_lists/adjectives.txt")
         adjectiveList = list(adjectiveFO)
         selection = random.randint(0, len(adjectiveList) - 1)
-        if reversed == True:
-            adjective = adjectiveList[-selection]
-        else:
-            adjective = adjectiveList[selection]
+        adjective = adjectiveList[selection]
         adjective = adjective.rstrip("\n")
         return adjective
 
