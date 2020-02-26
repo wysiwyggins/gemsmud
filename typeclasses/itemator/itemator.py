@@ -4,27 +4,31 @@ import markovify
 from evennia.prototypes.spawner import spawn
 
 class Item:
-    def __init__(self, substance):
+    """ def __init__(self):
         self.seed = 0
         self.name = "horse"
         self.kind = "Human"
         self.description = "A lovely toy horse"
-        self.typeclass = typeclasses.objects.Object
+        self.typeclass = typeclasses.objects.Object """
+    
+def GenerateItem(self):
+    itemType = random.randint(0, 4)
+    if itemType <= 2:
+        self.generateTalisman()
+    elif itemType == 3:
+        self.generateBook()
+    else:
+        self.generateGarment()
 
-    def GenerateItem(self):
-        itemType = random.randint(0, 4)
-        if itemType <= 2:
-            self.generateTalisman()
-        elif itemType == 3:
-            self.generateBook()
-        else:
-            self.generateGarment() 
+    self.item-name = "name"
+    self.item-typeclass = typeclasses.objects.DefaultObject
+    self.item-description = "an object"
 
     self.item_proto = {
-        "key": self.name,
-        "typeclass": self.typeclass,
-        "desc": self.description,
-        "location": caller.location
+        "key": item-name,
+        "typeclass": item-typeclass,
+        "desc": description,
+        "location": item-description.location
     }
     
     def generateGarment(self):
@@ -53,9 +57,9 @@ class Item:
         talisman = talismanList[selection]
         talisman = item.rstrip("\n")
         talismanFO.close()
-        self.name = talisman
+        self.item-name = talisman
         anAdvective = self.addAorAn(adjective)
-        self.description = anAdvective + " " + talisman + " made of " + color + substance + "."
+        self.item-description = anAdvective + " " + talisman + " made of " + color + substance + "."
 
     
     def generateSciFiBook(self):
@@ -72,10 +76,10 @@ class Item:
             except TypeError:
                 bookText += "A fine book about rockets. "
         bookCorpusFO.close()
-        self.name = color + "book"
-        self.description = bookDescription
+        self.item-name = color + "book"
+        self.item-description = bookDescription
         self.db.readable_text = bookText
-        self.typeclass = typeclasses.objects.Readable
+        self.item-typeclass = typeclasses.objects.Readable
 
 
     def getSubstance(self):
@@ -85,15 +89,6 @@ class Item:
         substance = substanceList[selection]
         substance = substance.rstrip("\n")
         return substance
-
-    def getFeature(self):
-        featureFO = open("features.txt")
-        featureList = list(featureFO)
-        selection = random.randint(0, len(featureList) - 1)
-        substance = featureList[selection]
-        substance = feature.rstrip("\n")
-        return feature
-
 
     def getAdjective(self, reversed):
         adjectiveFO = open("adjectives.txt")
