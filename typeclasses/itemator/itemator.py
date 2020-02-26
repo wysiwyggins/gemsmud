@@ -37,7 +37,7 @@ class Item:
         colorsFO.close()
         return color
 
-    def addAorAn(word):
+    def addAorAn(self, word):
         if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
             word = "an " + word
         elif word[-1] != "s":
