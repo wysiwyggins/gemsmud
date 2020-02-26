@@ -192,23 +192,23 @@ class CmdActivate(Command):
         self.itemator.Item.GenerateItem()
 
 
-    class CmdSetItemator(CmdSet):
-        """
-        A CmdSet for itemators.
-        """
+class CmdSetItemator(CmdSet):
+    """
+    A CmdSet for itemators.
+    """
 
-        def at_cmdset_creation(self):
-            """
-            Called when the cmdset is created.
-            """
-            self.add(CmdActivate())
+    def at_cmdset_creation(self):
+        """
+        Called when the cmdset is created.
+        """
+        self.add(CmdActivate())
 
-    class Itemator(DefaultObject):
-        def at_cmdset_creation(self):
-            """
-            Called when the cmdset is created.
-            """
-            self.cmdset.add(CmdSetItemator, permanent=True)
+class Itemator(DefaultObject):
+    def at_cmdset_creation(self):
+        """
+        Called when the cmdset is created.
+        """
+        self.cmdset.add(CmdSetItemator, permanent=True)
 
 # -------------------------------------------------------------
 #
