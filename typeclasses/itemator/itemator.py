@@ -56,7 +56,7 @@ class Item:
             "key": self.item_name,
             "typeclass": self.item_typeclass,
             "desc": self.item_description,
-            "location": caller.location
+            "location": self.caller.location
         }
         return self.item_proto
     
