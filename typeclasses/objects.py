@@ -169,7 +169,7 @@ class Mirror(DefaultObject):
 
     def at_desc(self, looker=None):
         self.msg("You peer into the mirror. Describe what you see.")
-        self.execute_cmd(setdesc) #I am not doing this correctly yet. 
+        self.execute_cmd("setdesc")
 
 
 class CmdActivate(Command):
@@ -194,7 +194,7 @@ class CmdActivate(Command):
             return
 
         spawn(item_proto)
-        log_warn("I AM SPAWNING AN OBJECT %s NOW" % obj)
+        caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
 
 
 class CmdSetItemator(CmdSet):
