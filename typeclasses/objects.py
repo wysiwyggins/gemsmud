@@ -173,16 +173,12 @@ class Mirror(DefaultObject):
 
 
 class CmdActivate(Command):
-    newItem = Item()
     key = "activate"
     locks = "cmd:all()"
 
     def func(self):
-        item_proto = self.newItem.generateItem()
-        """
-        Implements the activate command.
-        """
-
+        newItem = Item()
+        item_proto = newItem.generateItem()
         if not self.args:
             self.caller.msg("What do you want to activate?")
             return
@@ -193,8 +189,9 @@ class CmdActivate(Command):
             self.caller.msg("It doesn't seem to be functioning.")
             return
 
-        spawn(item_proto)
-        caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
+        real_item = spawn(item_proto)
+        real_item.location = self.caller
+        self.caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
 
 
 class CmdSetItemator(CmdSet):
