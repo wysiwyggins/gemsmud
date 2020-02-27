@@ -208,7 +208,7 @@ class CmdSetItemator(CmdSet):
         """
         self.add(CmdActivate())
 
-class Itemator(DefaultObject):
+class Itemator(Object):
     def at_object_creation(self):
         """
         Called when the cmdset is created.
