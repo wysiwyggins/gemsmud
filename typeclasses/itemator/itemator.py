@@ -81,9 +81,10 @@ class Item(DefaultObject):
         talisman = talismanList[selection]
         talisman = talisman.rstrip("\n")
         talismanFO.close()
-        item_name = talisman
+        self.item_name = talisman
         anAdjective = self.addAorAn(adjective)
-        item_description = anAdjective + " " + talisman + " made of " + color + substance + "."
+        self.item_description = anAdjective + " " + \
+            talisman + " made of " + color + substance + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": self.item_typeclass,
