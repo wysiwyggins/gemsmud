@@ -11,6 +11,7 @@ class Item:
         self.item_name = "horse"
         self.item_description = "A lovely toy horse"
         self.item_typeclass = "typeclasses.objects.Object"
+        self.item_location = 148
     
     def getSubstance(self):
         substanceFO = open("typeclasses/itemator/word_lists/substances.txt")
@@ -56,6 +57,7 @@ class Item:
             "key": self.item_name,
             "typeclass": self.item_typeclass,
             "desc": self.item_description,
+            "location": self.item_location
         }
         return self.item_proto
     
