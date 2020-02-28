@@ -1,5 +1,6 @@
 from evennia import create_object, DefaultObject
 import evennia.contrib.clothing
+from evennia import default_cmds
 import random
 import markovify
 from django.conf import settings
