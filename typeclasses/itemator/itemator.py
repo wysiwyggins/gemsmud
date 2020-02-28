@@ -66,7 +66,7 @@ class Item(DefaultObject):
             "key": self.item_name,
             "typeclass": evennia.contrib.clothing.Clothing,
             "desc": self.item_description,
-            "location": self.item_location
+            "location": self.caller.location
         }
         return self.item_proto
 
@@ -89,7 +89,7 @@ class Item(DefaultObject):
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
             "desc": self.item_description,
-            "location": self.item_location
+            "location": self.caller.location
         }
         return self.item_proto
 
