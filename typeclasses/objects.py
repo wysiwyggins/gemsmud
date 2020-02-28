@@ -190,7 +190,7 @@ class CmdActivate(Command):
 
         real_item = spawn(item_proto)
         self.caller.msg(real_item)
-        real_item[0].location = self.caller
+        real_item[0].location = self.caller.location
         
         self.caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
 
