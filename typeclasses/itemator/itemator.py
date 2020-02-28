@@ -1,8 +1,7 @@
-from evennia import create_object
+from evennia import create_object, DefaultObject
 import random
 import markovify
 from django.conf import settings
-
 
 
 
