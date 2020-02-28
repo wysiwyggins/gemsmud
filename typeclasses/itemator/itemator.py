@@ -84,7 +84,7 @@ class Item(DefaultObject):
         self.item_name = talisman
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " " + \
-            talisman + " made of " + color + substance + "."
+            talisman + " made of " + color + " " + substance + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
