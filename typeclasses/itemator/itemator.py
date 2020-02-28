@@ -88,7 +88,7 @@ class Item(DefaultObject):
         self.item_proto = {
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
-            "desc": item_description,
+            "desc": self.item_description,
             "location": self.item_location
         }
         return self.item_proto
