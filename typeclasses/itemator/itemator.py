@@ -6,12 +6,8 @@ from django.conf import settings
 
 
 
-class Item:
-    def __init__(self):
-        self.item_name = "horse"
-        self.item_description = "A lovely toy horse"
-        self.item_typeclass = "typeclasses.objects.Object"
-        self.item_location = 148
+class Item(DefaultObject):
+
     
     def getSubstance(self):
         substanceFO = open("typeclasses/itemator/word_lists/substances.txt")
@@ -49,16 +45,10 @@ class Item:
         
         itemType = random.randint(0, 4)
         if itemType <= 2:
-            self.generateTalisman()
+            self.item_proto = self.generateTalisman()
         else:
-            self.generateGarment()
+            self.item_proto = self.generateGarment()
 
-        self.item_proto = {
-            "key": self.item_name,
-            "typeclass": self.item_typeclass,
-            "desc": self.item_description,
-            "location": self.item_location
-        }
         return self.item_proto
     
     def generateGarment(self):
@@ -73,6 +63,13 @@ class Item:
         clothingDescription = self.addAorAn(clothingItem)
         self.item_description = clothingDescription
         clothesFO.close()
+        self.item_proto = {
+            "key": self.item_name,
+            "typeclass": self.item_typeclass,
+            "desc": self.item_description,
+            "location": self.item_location
+        }
+        return self.item_proto
 
 
     def generateTalisman(self):
@@ -85,9 +82,16 @@ class Item:
         talisman = talismanList[selection]
         talisman = talisman.rstrip("\n")
         talismanFO.close()
-        self.item_name = talisman
+        item_name = talisman
         anAdjective = self.addAorAn(adjective)
-        self.item_description = anAdjective + " " + talisman + " made of " + color + substance + "."
+        item_description = anAdjective + " " + talisman + " made of " + color + substance + "."
+        self.item_proto = {
+            "key": self.item_name,
+            "typeclass": self.item_typeclass,
+            "desc": self.item_description,
+            "location": self.item_location
+        }
+        return self.item_proto
 
     """  
     def generateSciFiBook(self):
