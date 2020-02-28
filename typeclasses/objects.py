@@ -192,7 +192,7 @@ class CmdActivate(Command):
         self.caller.msg(real_item)
         real_item[0].location = self.caller.location
         
-        self.caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
+        self.caller.msg("The %s heats up tremendously and then excretes one" + real_item[0].name)
 
 
 class CmdSetItemator(CmdSet):
