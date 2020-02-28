@@ -61,11 +61,11 @@ class Item(DefaultObject):
         clothingDescription = color + " " + clothingItem
         clothingDescription = self.addAorAn(clothingItem)
         self.item_description = clothingDescription
-        self.item_typeclass = "evennia.contrib.clothing.Clothing"
+        item_typeclass = "evennia.contrib.clothing.Clothing"
         clothesFO.close()
         self.item_proto = {
             "key": self.item_name,
-            "typeclass": self.item_typeclass,
+            "typeclass": item_typeclass,
             "desc": self.item_description,
             "location": self.item_location
         }
@@ -83,14 +83,14 @@ class Item(DefaultObject):
         talisman = talisman.rstrip("\n")
         talismanFO.close()
         self.item_name = talisman
-        self.item_typeclass = "typeclasses.objects.Object"
+        item_typeclass = "typeclasses.objects.Object"
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " " + \
             talisman + " made of " + color + substance + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": self.item_typeclass,
-            "desc": self.item_description,
+            "desc": item_description,
             "location": self.item_location
         }
         return self.item_proto
