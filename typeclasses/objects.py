@@ -13,7 +13,6 @@ inheritance.
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
-from evennia.utils.logger import log_warn
 
 
 class Object(DefaultObject):
@@ -190,7 +189,7 @@ class CmdActivate(Command):
             return
 
         real_item = spawn(item_proto)
-        #real_item.location = self.caller
+        real_item.location = self.caller
         self.caller.msg(real_item)
         self.caller.msg("I AM SPAWNING AN OBJECT %s NOW" % obj)
 
