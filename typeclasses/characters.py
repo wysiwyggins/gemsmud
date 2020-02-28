@@ -8,9 +8,10 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
+from evennia.contrib.clothing import ClothedCharacter
 
 
-class Character(DefaultCharacter):
+class Character(ClothedCharacter):
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('character:sheet', kwargs={'object_id': self.id})
