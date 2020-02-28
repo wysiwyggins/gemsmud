@@ -61,11 +61,11 @@ class Item(DefaultObject):
         clothingDescription = color + " " + clothingItem
         clothingDescription = self.addAorAn(clothingItem)
         self.item_description = clothingDescription
-        item_typeclass = "evennia.contrib.clothing.Clothing"
+        self.item_typeclass = "evennia.contrib.clothing.Clothing"
         clothesFO.close()
         self.item_proto = {
             "key": self.item_name,
-            "typeclass": item_typeclass,
+            "typeclass": self.item_typeclass,
             "desc": self.item_description,
             "location": self.item_location
         }
