@@ -11,7 +11,6 @@ class Item:
         self.item_name = "horse"
         self.item_description = "A lovely toy horse"
         self.item_typeclass = "typeclasses.objects.Object"
-        self.caller = " "
     
     def getSubstance(self):
         substanceFO = open("typeclasses/itemator/word_lists/substances.txt")
