@@ -289,7 +289,7 @@ class Incinerator(DefaultObject):
         self.db.itemcounter = 0
     def destroyObject(object):
         objectname = object.name
-    if object.item_typeclass == typeclasses.characters.Character:
+    if object.typeclass == typeclasses.characters.Character:
         self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.")
     else:
         self.caller.msg("the {objectname} bursts into flames inside the incinerator")
