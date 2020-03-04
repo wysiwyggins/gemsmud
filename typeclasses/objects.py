@@ -292,7 +292,7 @@ class Incinerator(DefaultObject):
             self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(objectname=object.name))
         else:
             self.caller.msg("the {objectname} bursts into flames inside the incinerator")
-    self.execute_cmd("destroy" + object)
+        self.execute_cmd("destroy" + object)
 
 class Counter(Readable):
     def at_desc(self, looker=None):
