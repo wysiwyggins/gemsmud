@@ -287,6 +287,30 @@ class Readable(DefaultObject):
 class Incinerator(DefaultObject):
     def at_object_creation(self):
         self.db.itemcounter = 0
+
+    def at_object_receive(self, moved_obj, source_location, **kwargs):
+        """
+        Called after an object has been moved into this object.
+
+        Args:
+            moved_obj (Object): The object moved into this one
+            source_location (Object): Where `moved_object` came from.
+                Note that this could be `None`.
+            **kwargs (dict): Arbitrary, optional arguments for users
+                overriding the call (unused by default).
+
+        """
+        if moved_obj.db.typeclass == typeclasses.characters.Character:
+            self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(
+                objectname=moved_obj.name))
+        else:
+            self.caller.msg(
+                "the {objectname} bursts into flames inside the incinerator".format(
+                    objectname=moved_obj.name)))
+            self.execute_cmd("destroy" + moved_obj)
+            super().at_object_receive(self, moved_obj, source_location, **kwargs)
+
+    
     def destroyObject(object):
         if object.db.typeclass == typeclasses.characters.Character:
             self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(objectname=object.name))
