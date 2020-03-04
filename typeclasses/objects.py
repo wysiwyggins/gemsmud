@@ -289,7 +289,7 @@ class Incinerator(DefaultObject):
         self.db.itemcounter = 0
     def destroyObject(object):
         if object.db.typeclass == typeclasses.characters.Character:
-            self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".objectname=object.name)
+            self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(objectname=object.name))
         else:
             self.caller.msg("the {objectname} bursts into flames inside the incinerator")
     self.execute_cmd("destroy" + object)
@@ -305,7 +305,6 @@ class Counter(Readable):
         warningtext = " "
         if cnt > 100:
             overcount = 100 - cnt
-            warningtext = "|500Warning, Zone 25 is now {overcount} items over allowed limits.|n".format(
-                overcount=overcount)
+            warningtext = "|500Warning, Zone 25 is now {overcount} items over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = countertext + "\n" + warningtext
         super().at_desc(self, looker)
