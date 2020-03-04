@@ -304,9 +304,7 @@ class Incinerator(DefaultObject):
             self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(
                 objectname=moved_obj.name))
         else:
-            self.caller.msg(
-                "the {objectname} bursts into flames inside the incinerator".format(
-                    objectname=moved_obj.name)))
+            self.caller.msg("the {objectname} bursts into flames inside the incinerator".format(objectname=moved_obj.name))
             self.execute_cmd("destroy" + moved_obj)
             super().at_object_receive(self, moved_obj, source_location, **kwargs)
 
