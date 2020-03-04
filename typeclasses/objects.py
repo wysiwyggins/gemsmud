@@ -192,7 +192,7 @@ class CmdActivate(Command):
         self.caller.msg(real_item)
         real_item[0].location = self.caller.location
         
-        self.caller.msg("The %s heats up tremendously and then excretes one" + real_item[0].name)
+        self.caller.msg("The object womb heats up tremendously and then excretes one " + real_item[0].name)
 
 
 class CmdSetItemator(CmdSet):
@@ -279,3 +279,34 @@ class Readable(DefaultObject):
         self.db.readable_text = "There is no text written on %s." % self.key
         # define a command on the object.
         self.cmdset.add_default(CmdSetReadable, permanent=True)
+
+
+
+
+
+class Incinerator(DefaultObject):
+    def at_object_creation(self):
+        self.db.itemcounter = 0
+    def destroyObject(object):
+        objectname = object.name
+    if object typeclass = typeclasses.characters.Character:
+        self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.")
+    else:
+        self.caller.msg("the {objectname} bursts into flames inside the incinerator")
+    self.execute_cmd("destroy" + object)
+
+class Counter(Readable):
+    def at_desc(self, looker=None):
+        cnt = ObjectDB.objects.exclude(
+            column_name="typeclasses.rooms.DefaultRoom").count()
+        cnt += ObjectDB.objects.exclude(
+            column_name="typeclasses.hybrid_room.HybridRoom").count()
+        countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
+            count=cnt)
+        warningtext = " "
+        if cnt > 100:
+            overcount = 100 - cnt
+            warningtext = "|500Warning, Zone 25 is now {overcount} items over allowed limits.|n".format(
+                overcount=overcount)
+        self.db.readable_text = countertext + "\n" + warningtext
+        super().at_desc(self, looker)
