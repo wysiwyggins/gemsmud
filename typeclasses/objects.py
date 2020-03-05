@@ -168,7 +168,7 @@ class Object(DefaultObject):
 
 class Mirror(DefaultObject):
 
-    def at_desc(self, looker, **kwargs):
+    def at_desc(self, looker):
         self.msg("You peer into the mirror. Describe what you see.")
         self.execute_cmd("setdesc")
 
@@ -313,7 +313,7 @@ class Incinerator(DefaultObject):
         self.execute_cmd("destroy" + moved_obj)
 
 class Counter(Readable):
-    def at_desc(self, looker, **kwargs):
+    def at_desc(self, looker):
         cnt = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
