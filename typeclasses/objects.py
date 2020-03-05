@@ -317,6 +317,8 @@ class Counter(Readable):
     def at_desc(self, looker, **kwargs):
         cnt = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
+        cnt += ObjectDB.objects.exclude(
+            db_typeclass_path="typeclasses.hybrid_room.typeclasses.exits.Exit").count()
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
         warningtext = " "
