@@ -12,6 +12,7 @@ inheritance.
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
 from evennia.objects.models import ObjectDB
+from evennia.utils.search import search_object
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
 
@@ -177,7 +178,7 @@ class Mirror(DefaultObject):
 class CmdActivate(Command):
     key = "activate"
     locks = "cmd:all()"
-
+    
     def func(self):
         newItem = Item()
         item_proto = newItem.generateItem()
@@ -190,12 +191,15 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-
+        incinerator = search_object(key="incinerator",
+                        location="KonMarie Temple")
         real_item = spawn(item_proto)
         self.caller.msg(real_item)
         real_item[0].location = self.caller.location
-        
+        incinerator.db.itemcounter +=1
+        count = incinerator.db.itemcounter
         self.caller.msg("The object womb heats up tremendously and then excretes one " + real_item[0].name)
+        self.caller.msg("A sythvoice coos, |304This is object {count} to have been created by this device.".format(count=count))
 
 
 class CmdSetItemator(CmdSet):
@@ -304,7 +308,7 @@ class Incinerator(DefaultObject):
 
         """
         self.caller.msg("Object received")
-        if moved_obj.db.typeclass == typeclasses.characters.Character:
+        if moved_obj.db.typeclass == "typeclasses.characters.Character":
             self.caller.msg("{objectname} is making a very embarrassing racket about being in the incinerator.".format(
                 objectname=moved_obj.name))
         else:
