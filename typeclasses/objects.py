@@ -196,9 +196,7 @@ class CmdActivate(Command):
         self.caller.msg(real_item)
         real_item[0].location = self.caller.location
         incinerator.db.itemcounter +=1
-        count = format(incinerator.db.itemcounter)
         self.caller.msg("The object womb heats up tremendously and then excretes one " + real_item[0].name)
-        self.caller.msg("A sythvoice coos, |304This is object {count} to have been created by this device."
 
 
 class CmdSetItemator(CmdSet):
