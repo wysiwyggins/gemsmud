@@ -318,7 +318,7 @@ class Counter(Readable):
 
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.hybrid_room.HybridRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
-        cnt = cnt_room - cnt_all - cnt_omit
+        cnt = cnt_all - cnt_omit
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
         warningtext = " "
