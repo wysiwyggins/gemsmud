@@ -168,10 +168,10 @@ class Object(DefaultObject):
 
 class Mirror(DefaultObject):
 
-    def at_desc(self, looker, **kwargs):
+    def at_desc(self, looker):
         self.msg("You peer into the mirror. Describe what you see.")
         self.execute_cmd("setdesc")
-        super().at_desc(self, looker, **kwargs)
+        super().at_desc(self, looker)
 
 
 class CmdActivate(Command):
@@ -314,7 +314,7 @@ class Incinerator(DefaultObject):
         self.execute_cmd("destroy" + moved_obj)
 
 class Counter(Readable):
-    def at_desc(self, looker, **kwargs):
+    def at_desc(self):
         cnt = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
         cnt += ObjectDB.objects.exclude(
