@@ -191,8 +191,7 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-        incinerator = search_object("incinerator",
-                        location="KonMarie Temple")
+        incinerator = search_object("incinerator")
         real_item = spawn(item_proto)
         self.caller.msg(real_item)
         real_item[0].location = self.caller.location
