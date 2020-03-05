@@ -313,7 +313,7 @@ class Incinerator(DefaultObject):
         self.execute_cmd("destroy" + moved_obj)
 
 class Counter(Readable):
-    def at_desc(self, looker=None):
+    def at_desc(self, looker=None, **kwargs):
         cnt = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
@@ -323,4 +323,5 @@ class Counter(Readable):
             overcount = 100 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = countertext + "\n" + warningtext
-        super().at_desc(self, looker)
+        self.db.desc = countertext + "\n" + warningtext
+        super().at_desc(self, looker=None, **kwargs)
