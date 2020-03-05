@@ -168,7 +168,7 @@ class Object(DefaultObject):
 
 class Mirror(DefaultObject):
 
-    def at_desc(looker=None):
+    def at_desc(self, looker=None, **kwargs):
         self.msg("You peer into the mirror. Describe what you see.")
         self.execute_cmd("setdesc")
         super().at_desc(looker=None)
@@ -314,7 +314,7 @@ class Incinerator(DefaultObject):
         self.execute_cmd("destroy" + moved_obj)
 
 class Counter(Readable):
-    def at_desc(looker=None):
+    def at_desc(lself, looker=None, **kwargs):
         cnt = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
         cnt += ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.typeclasses.exits.Exit").count()
@@ -326,4 +326,4 @@ class Counter(Readable):
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = countertext + "\n" + warningtext
         self.db.desc = countertext + "\n" + warningtext
-        super().at_desc(looker=None)
+        super().at_desc(self, looker=None, **kwargs)
