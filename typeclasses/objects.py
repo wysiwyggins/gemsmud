@@ -191,7 +191,7 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-        incinerator = search_object(key="incinerator",
+        incinerator = search_object(incinerator,
                         location="KonMarie Temple")
         real_item = spawn(item_proto)
         self.caller.msg(real_item)
@@ -322,7 +322,7 @@ class Counter(Readable):
 
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
-        cnt = cnt_all - cnt_omit - 40
+        cnt = cnt_all - cnt_omit - 60
         signtext = "|355    ___  ___    _ ___ ___ _____   ___ _  _ ___  _____  __ \n  / _ \|| _ )_ || || __/ __||_   _|| ||_ _|| \|| ||   \|| __\ \/ / \n || (_) || _ \ |||| || _|| (__  || ||    || |||| .` || ||) || _|| >  <\n  \\___/||___/\__/||___\___|| ||_||   ||___||_||\_||___/||___/_/\_\     |n"
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
