@@ -11,8 +11,10 @@ inheritance.
 
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
+from evennia.objects.models import ObjectDB
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
+
 
 
 class Object(DefaultObject):
