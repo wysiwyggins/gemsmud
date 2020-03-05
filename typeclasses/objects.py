@@ -315,10 +315,10 @@ class Incinerator(DefaultObject):
 
 class Counter(Readable):
     def at_desc(self, looker=None):
-        cnt_room = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.rooms.DefaultRoom").count()
-        cnt_hybrid = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.hybrid_room.HybridRoom").count()
-        cnt_exit = ObjectDB.objects.exclude(db_typeclass_path="typeclasses.exits.Exit").count()
-        cnt = cnt_room - cnt_hybrid - cnt_exit
+
+        cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.hybrid_room.HybridRoom", db_typeclass_path="typeclasses.hybrid_room.HybridRoom"db_typeclass_path="typeclasses.exits.Exit").count()
+        cnt_all  ObjectDB.objects.all().count()
+        cnt = cnt_room - cnt_all - cnt_omit
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
         warningtext = " "
