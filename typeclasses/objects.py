@@ -316,7 +316,7 @@ class Incinerator(DefaultObject):
                 objectname=moved_obj.name)
             source_location.msg(message)
         
-        self.execute_cmd("destroy" + moved_obj)
+        self.execute_cmd("destroy" + " " + moved_obj)
 
 class Counter(Readable):
     def at_desc(self, looker=None):
