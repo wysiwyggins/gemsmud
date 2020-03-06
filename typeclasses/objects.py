@@ -305,7 +305,7 @@ class Incinerator(DefaultObject):
 
         """
         self.location.msg_contents(message)
-        if moved_obj.db.typeclass == "typeclasses.characters.Character":
+        if moved_obj.is_typeclass("typeclasses.characters.Character"):
             message = "the {objectname} is making a very embarassing racket about being on fire.".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
         else:
