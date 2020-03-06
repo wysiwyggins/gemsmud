@@ -306,6 +306,8 @@ class Incinerator(DefaultObject):
                 overriding the call (unused by default).
 
         """
+        message = "object received"
+        self.location.msg_contents(message)
         if Character in inspect.getmro(moved_obj):
             message = "|500the {objectname} is making a very embarassing racket about being on fire.|n".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
