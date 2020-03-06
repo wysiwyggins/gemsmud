@@ -45,7 +45,7 @@ class Item(DefaultObject):
         
         itemType = random.randint(0, 5)
         if itemType <= 2:
-            self.item_proto = self.generateGarment()
+            self.item_proto = self.generateTalisman()
         elif itemType == 3:
             self.item_proto = self.generateSciFiBook()
         else:
@@ -95,8 +95,8 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateSciFiBook(self):
-        book_text = " "
-        bookDescription = "A paperback book"
+        self.book_text = " "
+        self.bookDescription = "A paperback book"
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
@@ -104,9 +104,9 @@ class Item(DefaultObject):
         self.book_name = color + "book"
         for i in range(4):
             try:
-                book_text += text_model.make_sentence(tries=100) + " "
+                self.book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                book_text += "A fine book about rockets. "
+                self.book_text += "A fine book about rockets. "
         bookCorpusFO.close()
         self.item_proto = {
             "key": self.book_name,
