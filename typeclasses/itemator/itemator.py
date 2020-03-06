@@ -67,7 +67,7 @@ class Item(DefaultObject):
         clothesFO.close()
         self.item_proto = {
             "key": self.item_name,
-            "typeclass": evennia.contrib.clothing.Clothing,
+            "typeclass": "evennia.contrib.clothing.Clothing",
             "desc": self.item_description,
         }
         return self.item_proto
@@ -95,24 +95,24 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateSciFiBook(self):
-        bookText = " "
+        book_text = " "
         bookDescription = "A paperback book"
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
-        bookname = color + "book"
+        self.book_name = color + "book"
         for i in range(4):
             try:
-                bookText += text_model.make_sentence(tries=100) + " "
+                book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                bookText += "A fine book about rockets. "
+                book_text += "A fine book about rockets. "
         bookCorpusFO.close()
         self.item_proto = {
-            "key": self.bookname,
+            "key": self.book_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
-            "readable_text": self.bookText,
+            "readable_text": self.book_text,
         }
 
     
