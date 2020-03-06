@@ -15,7 +15,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 """
 
 from evennia import default_cmds
-from evennia.typeclasses.hybrid_room import hybrid_room
+from typeclasses.hybrid_room import hybrid_room
 from evennia.contrib.clothing import ClothedCharacterCmdSet
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
