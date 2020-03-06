@@ -1,11 +1,9 @@
-rusty sword
 16mm camera
 anglepose lamp
 apple
 apron
 arm
 armchair
-axe
 bag
 baguette
 ball
@@ -61,7 +59,7 @@ flask
 flute
 football
 fork
-ghetto blaster
+jambox
 glass
 glove
 guitar
@@ -72,11 +70,7 @@ hat box
 head
 heart
 hockey stick
-horse
-iBook
-iMac
 iron
-ironing board
 ironing board
 jar of kimchee
 key
@@ -106,10 +100,6 @@ octahedron
 orange
 padlock
 paintbrush
-pair of gloves
-pair of pants
-pair of socks
-pair of trousers
 panties
 pencil
 photocopier
@@ -117,8 +107,6 @@ piano
 pile of bones
 pinball machine
 pineapple
-policeman's helmet
-powerbook
 pyramid
 record
 record player
@@ -132,15 +120,11 @@ seashell
 security camera
 set of dentures
 sewing-machine
-shirt
-shoe
-shot gun
 shrubbery
 skull
 slab
 snail shell
 snow shovel
-sock
 sofa
 spade
 spanner
@@ -157,17 +141,14 @@ super-8 camera
 swivel chair
 sword
 table
+cube
+pyramid
 tape recorder
-taxi
-taxidermist's table
-rhinoceros
-bag of potato chips
 telescope
 television
 tennis ball
 tetrahedron
 thumb
-tie
 toaster oven
 toilet
 tooth

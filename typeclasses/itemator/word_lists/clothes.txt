@@ -99,6 +99,7 @@ gilet
 girdle
 glasses
 gloves
+policeman's helmet
 gown
 halter top
 handbag
