@@ -100,6 +100,7 @@ girdle
 glasses
 gloves
 policeman's helmet
+wrestling title belt
 gown
 halter top
 handbag
