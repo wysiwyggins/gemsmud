@@ -46,8 +46,6 @@ class Item(DefaultObject):
         itemType = random.randint(0, 5)
         if itemType <= 3:
             self.item_proto = self.generateTalisman()
-        elif itemType == 4:
-            self.item_proto = self.generateSciFiBook()
         else:
             self.item_proto = self.generateGarment()
 
@@ -94,6 +92,9 @@ class Item(DefaultObject):
         }
         return self.item_proto
 
+
+""" Doesn't seem to be working yet, evennia/evennia/prototypes/prototypes.py", line 89, in homogenize_prototype
+
     def generateSciFiBook(self):
         self.book_text = " "
         self.bookDescription = "A paperback book"
@@ -115,5 +116,5 @@ class Item(DefaultObject):
             "readable_text": self.book_text,
         }
 
-    
+"""
     
