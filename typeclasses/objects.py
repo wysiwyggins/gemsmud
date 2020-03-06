@@ -307,10 +307,10 @@ class Incinerator(DefaultObject):
 
         """
         if Character in inspect.getmro(moved_obj):
-            message = "the {objectname} is making a very embarassing racket about being on fire.".format(objectname=moved_obj.name)
+            message = "|500the {objectname} is making a very embarassing racket about being on fire.|n".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
         else:
-            message = "the {objectname} bursts into flames inside the incinerator.".format(objectname=moved_obj.name)
+            message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
         moved_obj.delete()
         super().at_object_receive(self, moved_obj, source_location, **kwargs)
