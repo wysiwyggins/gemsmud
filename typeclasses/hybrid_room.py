@@ -138,19 +138,7 @@ class HybridRoom(DefaultRoom):
     time. It also allows for "details", together with a slightly modified
     look command.
     """
-""" 
 
-    #no idea why weather won't work
-    
-    def at_object_creation(self):
-        "called only when the object is first created"
-        TICKER_HANDLER.add(60*5, self.at_weather_update)
-
-    def at_weather_update(self, *args, **kwargs):
-        "ticked at regular intervals"
-        echo = random.choice(ECHOES)
-        self.msg_contents(echo)
- """
     def at_object_creation(self):
         """Called when room is first created only."""
         self.db.spring_desc = ""
@@ -168,6 +156,13 @@ class HybridRoom(DefaultRoom):
         self.ndb.last_timeslot = None
         # detail storage
         self.db.details = {}
+        "called only when the object is first created"
+        TICKER_HANDLER.add(60*5, self.at_weather_update)
+
+    def at_weather_update(self, *args, **kwargs):
+        "ticked at regular intervals"
+        echo = random.choice(ECHOES)
+        self.msg_contents(echo)
 
     def get_time_and_season(self):
         """
