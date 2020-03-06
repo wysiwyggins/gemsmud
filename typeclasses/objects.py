@@ -308,12 +308,10 @@ class Incinerator(DefaultObject):
         message = "Object received"
        self.location.msg_contents(message)
         if moved_obj.db.typeclass == "typeclasses.characters.Character":
-            message = "the {objectname} is making a very embarassing racket about being on fire.".format(
-                objectname=moved_obj.name)
+            message = "the {objectname} is making a very embarassing racket about being on fire.".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
         else:
-            message = "the {objectname} bursts into flames inside the incinerator.".format(
-                objectname=moved_obj.name)
+            message = "the {objectname} bursts into flames inside the incinerator.".format(objectname=moved_obj.name)
             self.location.msg_contents("message")
         
         moved_obj.delete()
