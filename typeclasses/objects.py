@@ -306,7 +306,7 @@ class Incinerator(DefaultObject):
         """
         super().at_object_receive(self, moved_obj, source_location, **kwargs)
         message = "Object received"
-       self.location.msg_contents(message)
+        self.location.msg_contents(message)
         if moved_obj.db.typeclass == "typeclasses.characters.Character":
             message = "the {objectname} is making a very embarassing racket about being on fire.".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
