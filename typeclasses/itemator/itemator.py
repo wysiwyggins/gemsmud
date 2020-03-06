@@ -44,9 +44,9 @@ class Item(DefaultObject):
     def generateItem(self):
         
         itemType = random.randint(0, 5)
-        if itemType <= 2:
+        if itemType <= 3:
             self.item_proto = self.generateTalisman()
-        elif itemType == 3:
+        elif itemType == 4:
             self.item_proto = self.generateSciFiBook()
         else:
             self.item_proto = self.generateGarment()
