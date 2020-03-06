@@ -12,6 +12,8 @@ inheritance.
 """
 from evennia import DefaultObject, DefaultExit, Command, CmdSet
 from evennia.objects.models import ObjectDB
+import inspect
+from typeclasses.characters import Character
 from evennia.utils.search import search_object
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
@@ -304,8 +306,7 @@ class Incinerator(DefaultObject):
                 overriding the call (unused by default).
 
         """
-        self.location.msg_contents(message)
-        moved_obj.is_typeclass("typeclasses.characters.Character"):
+        if Character in inspect.getmro(moved_obj):
             message = "the {objectname} is making a very embarassing racket about being on fire.".format(objectname=moved_obj.name)
             self.location.msg_contents(message)
         else:
