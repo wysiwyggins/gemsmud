@@ -306,15 +306,15 @@ class Incinerator(DefaultObject):
         """
         super().at_object_receive(self, moved_obj, source_location, **kwargs)
         message = "Object received"
-        source_location.msg_contents("message")
+        source_location.msg(message)
         if moved_obj.db.typeclass == "typeclasses.characters.Character":
             message = "the {objectname} is making a very embarassing racket about being on fire.".format(
                 objectname=moved_obj.name)
-            source_location.msg_contents(message)
+            source_location.msg(message)
         else:
             message = "the {objectname} bursts into flames inside the incinerator.".format(
                 objectname=moved_obj.name)
-            source_location.msg_contents(message)
+            source_location.msg(message)
         
         self.execute_cmd("destroy" + moved_obj)
 
