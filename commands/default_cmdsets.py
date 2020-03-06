@@ -17,7 +17,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 from evennia import default_cmds
 from evennia.contrib import extended_room
 from evennia.contrib.clothing import ClothedCharacterCmdSet
-import evennia.contrib.dice
+from evennia.contrib.dice import roll_dice
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
