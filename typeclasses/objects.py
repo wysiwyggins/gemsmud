@@ -336,7 +336,7 @@ class Counter(Readable):
         for x in Character.objects.all():
             breakdowntext += "\n |035" + "{x}|n".format(x=x)
             for i in x.contents:
-                breakdowntext += "\n     |555{i}|n".format(i=i)
+                breakdowntext += "\n \t |555{i}|n".format(i=i)
         if cnt > 100:
             overcount = 100 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
