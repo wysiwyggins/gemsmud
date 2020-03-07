@@ -332,7 +332,7 @@ class Counter(Readable):
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
         warningtext = " "
-        breakdowntext = "|555CITIZENS AND BELONGINGS:|n"
+        breakdowntext = "\n|555CITIZENS AND BELONGINGS:|n"
         for x in Character.objects.all():
             breakdowntext += "\n |035" + "{x}|n".format(x=x)
             for i in x.contents:
