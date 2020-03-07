@@ -340,7 +340,6 @@ class Counter(Readable):
         if cnt > 100:
             overcount = 100 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
-        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext
-        
+        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext
         self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext
         super().at_desc(looker)
