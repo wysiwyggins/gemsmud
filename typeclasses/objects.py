@@ -332,9 +332,15 @@ class Counter(Readable):
         countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
             count=cnt)
         warningtext = " "
+        breakdowntext = " "
+        for x in Character.objects.all():
+            breakdowntext += "\n |035" + "{x}|n".format(x=x)
+            for i in x.contents:
+                breakdowntext += "\t {i}\n".format(i=i)
         if cnt > 100:
             overcount = 100 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext
-        self.db.desc = signtext + "\n" + countertext + "\n" + warningtext
+        
+        self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext
         super().at_desc(looker)
