@@ -49,3 +49,4 @@ TIME_IGNORE_DOWNTIMES = True
 TIME_FACTOR = 1.0
 TIME_ZONE = 'America/Los_Angeles'
 USE_TZ = True
+IRC_ENABLED = True
