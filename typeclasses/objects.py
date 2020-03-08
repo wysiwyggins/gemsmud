@@ -337,8 +337,8 @@ class Counter(Readable):
             breakdowntext += "\n |035" + "{x}|n".format(x=x)
             for i in x.contents:
                 breakdowntext += "\n \t |555{i}|n".format(i=i)
-        if cnt > 100:
-            overcount = 100 - cnt
+        if cnt > 1000:
+            overcount = 1000 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext
         self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext

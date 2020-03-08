@@ -1,26 +1,26 @@
+jadeite mug
 16mm camera
 anglepose lamp
-apple
+glass apple
 apron
-arm
-armchair
+shoe
 bag
 baguette
 ball
 banana
 battery
-bathtub
 bicycle
 bike helmet
 bone
-book
 boot
-bottle rack
+bottle
 bowl
 box
-bra
 branch
 brick
+shard
+fragment
+block
 bridge
 bunch of grapes
 bunch of keys
@@ -33,13 +33,11 @@ cellphone
 chainsaw
 chair
 chisel
-Christmas tree
+ornament
 cleaver
 clock
 cloth
 clothes peg
-compass
-computer
 conch shell
 cube
 cup
@@ -47,30 +45,23 @@ curtain
 cylinder
 dice
 disk
-dissecting table
-dog
-dolmen
-electric guitar
+Scissors
+plectrum
 engine
 eyeball
 femur
-filing cabinet
 flask
 flute
 football
 fork
-jambox
+Jambox
 glass
 glove
-guitar
-guitar amp
+marble
 hammer
-hat
 hat box
-head
-heart
-hockey stick
 iron
+tiny hand
 ironing board
 jar of kimchee
 key
@@ -89,43 +80,33 @@ menhir
 metronome
 milk jug
 model giraffe
-monolith
-movie light
+crystal
 nail
-nose
-notepad
-obelisk
 ocarina
 octahedron
 orange
 padlock
 paintbrush
-panties
 pencil
 photocopier
 piano
-pile of bones
-pinball machine
 pineapple
 pyramid
 record
 record player
 recorder
-replica of the Mona Lisa
-revolver
+painting
 riot shield
 saw
-searchlight
 seashell
 security camera
 set of dentures
 sewing-machine
 shrubbery
 skull
-slab
 snail shell
 snow shovel
-sofa
+sock
 spade
 spanner
 Speak & Spell
@@ -138,17 +119,12 @@ staircase
 rope
 sticker
 super-8 camera
-swivel chair
-sword
-table
-cube
-pyramid
+nautilus fossil
 tape recorder
-telescope
-television
 tennis ball
 tetrahedron
 thumb
+tie
 toaster oven
 toilet
 tooth
@@ -158,13 +134,25 @@ tube
 umbrella
 urinal
 video camera
-video game console
-walkman
 wheelbarrow
 wig
-windmill
 wine glass
 wire
 wrench
+wrestling title belt
 ZX Spectrum
 egg
+nautilus fossil
+gear
+stamp
+box
+thumbtack
+pasta strainer
+doorstop
+ink blotter
+hammer
+label
+swatch
+scrap
+morsel
+sample
