@@ -327,9 +327,9 @@ class Counter(Readable):
 
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
-        cnt = cnt_all - cnt_omit - 60
+        cnt = cnt_all - cnt_omit
         signtext = "|355    ___  ___    _ ___ ___ _____   ___ _  _ ___  _____  __ \n  / _ \|| _ )_ || || __/ __||_   _|| ||_ _|| \|| ||   \|| __\ \/ / \n || (_) || _ \ |||| || _|| (__  || ||    || |||| .` || ||) || _|| >  <\n  \\___/||___/\__/||___\___|| ||_||   ||___||_||\_||___/||___/_/\_\     |n"
-        countertext = "There are currently {count} items in Zone 25. Maximum count is 100 items.".format(
+        countertext = "There are currently {count} items in Zone 25. Maximum count is 1000 items.".format(
             count=cnt)
         warningtext = " "
         breakdowntext = "\n \n|555CITIZENS AND BELONGINGS:|n"
