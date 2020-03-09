@@ -195,7 +195,7 @@ class CmdActivate(Command):
             return
         # incinerator = search_object("incinerator") #not working
         real_item = spawn(item_proto)
-        self.caller.msg(real_item)
+        # self.caller.msg(real_item)
         real_item[0].location = self.caller.location
         # ncinerator.db.itemcounter +=1 #not working
         self.caller.msg("The object womb heats up tremendously and then excretes one " + real_item[0].name)
