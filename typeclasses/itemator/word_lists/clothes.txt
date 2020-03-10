@@ -265,7 +265,6 @@ vestments
 visor
 waders
 waistcoat
-wear
 wedding gown
 Wellingtons
 wetsuit
@@ -277,3 +276,8 @@ wrap
 yoke
 zipper
 zoris
+boa
+thong
+belt
+helmet
+chaps

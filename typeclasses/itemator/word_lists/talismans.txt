@@ -30,7 +30,6 @@ candle
 cap
 car battery
 cellphone
-chainsaw
 chair
 chisel
 ornament
@@ -101,7 +100,6 @@ saw
 seashell
 security camera
 set of dentures
-sewing-machine
 shrubbery
 skull
 snail shell
@@ -139,7 +137,6 @@ wig
 wine glass
 wire
 wrench
-wrestling title belt
 ZX Spectrum
 egg
 nautilus fossil
@@ -156,3 +153,13 @@ swatch
 scrap
 morsel
 sample
+bottle
+cup
+saucer
+tassle
+egg cup
+spray bottle
+key
+rubik's cube
+tea cozy
+saddle
