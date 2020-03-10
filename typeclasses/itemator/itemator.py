@@ -59,8 +59,7 @@ class Item(DefaultObject):
         clothingItem = clothesList[clothesSelection]
         clothingItem = clothingItem.rstrip("\n")
         self.item_name = clothingItem
-        clothingDescription = color + " " + clothingItem
-        clothingDescription = self.addAorAn(clothingItem)
+        clothingDescription = self.addAorAn(color) + " " + clothingItem
         self.item_description = clothingDescription
         clothesFO.close()
         self.item_proto = {
