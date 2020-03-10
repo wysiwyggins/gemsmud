@@ -320,6 +320,7 @@ class Incinerator(DefaultObject):
         message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
         self.location.msg_contents(message)
         moved_obj.delete()
+        source_location.db.discards =+ 1
         super().at_object_receive(self, moved_obj, source_location, **kwargs)
 
 class Counter(Readable):
