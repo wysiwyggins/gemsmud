@@ -170,16 +170,17 @@ class Object(DefaultObject):
 
 class Mirror(DefaultObject):
 
-    def at_desc(self, looker=None, **kwargs):
+    def at_desc(self, looker **kwargs):
         self.msg("You peer into the mirror. Describe what you see.")
-        self.execute_cmd("setdesc")
-        super().at_desc(looker=None)
+        looker.execute_cmd("setdesc")
+        super().at_desc(looker)
 
 
 class CmdActivate(Command):
     key = "activate"
     locks = "cmd:all()"
-    
+    """ Generating books is busted, I think I'd like to have individual object type generators so that players have a little more control over what they're making without having full builder access. 
+    """
     def func(self):
         newItem = Item()
         item_proto = newItem.generateItem()
@@ -322,6 +323,10 @@ class Incinerator(DefaultObject):
 
 class Counter(Readable):
     def at_desc(self, looker=None):
+
+        """
+        I'd love to also maybe show how many items each character has incinerated too, I tried using the source_location arg of at_obj_received in incinerator, but it gets the room, not the player who gave the item.
+        """
 
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
