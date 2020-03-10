@@ -10,11 +10,10 @@ the other types, you can do so by adding this as a multiple
 inheritance.
 
 """
-from evennia import DefaultObject, DefaultExit, Command, CmdSet
+from evennia import DefaultObject, DefaultExit, Command, CmdSet, search_object
 from evennia.objects.models import ObjectDB
 import inspect
 from typeclasses.characters import Character
-from evennia.utils.search import search_object
 from typeclasses.itemator.itemator import Item
 from evennia.prototypes.spawner import spawn
 
@@ -193,11 +192,11 @@ class CmdActivate(Command):
         if obj != self.obj:
             self.caller.msg("It doesn't seem to be functioning.")
             return
-        # incinerator = search_object("incinerator") #not working
+        incinerator = search_object("incinerator") #not working
         real_item = spawn(item_proto)
         # self.caller.msg(real_item)
         real_item[0].location = self.caller.location
-        # ncinerator.db.itemcounter +=1 #not working
+        incinerator.db.itemcounter += 1 #not working
         self.caller.msg("The object womb heats up tremendously and then excretes one " + real_item[0].name)
 
 
@@ -316,11 +315,11 @@ class Incinerator(DefaultObject):
             message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
             self.location.msg_contents(message) 
         """
-
+        incinerator = search_object("incinerator")
         message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
         self.location.msg_contents(message)
         moved_obj.delete()
-        source_location.db.discards =+ 1
+        incinerator.db.discards =+ 1
         super().at_object_receive(self, moved_obj, source_location, **kwargs)
 
 class Counter(Readable):
