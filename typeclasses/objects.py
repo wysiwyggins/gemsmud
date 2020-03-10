@@ -170,7 +170,7 @@ class Object(DefaultObject):
 
 class Mirror(DefaultObject):
 
-    def at_desc(self, looker **kwargs):
+    def at_desc(self, looker, **kwargs):
         self.msg("You peer into the mirror. Describe what you see.")
         looker.execute_cmd("setdesc")
         super().at_desc(looker)
