@@ -75,7 +75,7 @@ class Item(DefaultObject):
         title = titlesList[titlesSelection]
         title = title.rstrip("\n")
         title = title.title()
-        title = "\"" + title + "\""
+        title = "'" + title + "'"
         titlesFO.close()
         return title
 
