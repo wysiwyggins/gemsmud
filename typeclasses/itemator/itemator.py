@@ -158,7 +158,6 @@ class Item(DefaultObject):
         self.item_description = color + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
             "key": self.item_key,
-            "name": self.item_name,
             "typeclass": "typeclasses.objects.Object",
             "desc": self.item_description,
         }
