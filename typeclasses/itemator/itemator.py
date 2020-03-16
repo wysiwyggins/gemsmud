@@ -69,13 +69,16 @@ class Item(DefaultObject):
         return verb
     
     def getTitle(self):
+        r = random.randint(0, 5)
+        g = random.randint(0, 5)
+        b = random.randint(0, 5)
         titlesFO = open("typeclasses/itemator/word_lists/artTitles.txt")
         titlesList = list(titlesFO)
         titlesSelection = random.randint(0, len(titlesList) - 1)
         title = titlesList[titlesSelection]
         title = title.rstrip("\n")
         title = title.title()
-        title = "|*" + title + "|*"
+        title = "|" + str(r) + str(g) + str(b) + title + "|n"
         titlesFO.close()
         return title
 
