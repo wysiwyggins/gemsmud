@@ -19,6 +19,7 @@ from evennia.contrib import extended_room
 from evennia.contrib import mail
 import typeclasses.hybrid_room
 from evennia.contrib.clothing import ClothedCharacterCmdSet
+from evennia.contrib.building_menu import GenericBuildingCmd
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -36,7 +37,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         super().at_cmdset_creation()
         #
         # any commands you add below will overload the default ones.
-        #
+        self.add(GenericBuildingCmd())
         self.add(ClothedCharacterCmdSet)
 
 
@@ -100,3 +101,4 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+

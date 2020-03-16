@@ -287,10 +287,6 @@ class Readable(DefaultObject):
         # define a command on the object.
         self.cmdset.add_default(CmdSetReadable, permanent=True)
 
-
-
-
-
 class Incinerator(DefaultObject):
     def at_object_creation(self):
         self.db.itemcounter = 0
