@@ -74,6 +74,8 @@ class Item(DefaultObject):
         titlesSelection = random.randint(0, len(titlesList) - 1)
         title = titlesList[titlesSelection]
         title = title.rstrip("\n")
+        title = title.title()
+        title = "\\"" + title + "\\""
         titlesFO.close()
         return title
 
@@ -147,7 +149,7 @@ class Item(DefaultObject):
         theme = self.getTheme()
         self.item_name = title
         anAdjective = self.addAorAn(adjective)
-        self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + "." + "It displays considerable " + skill + " as it " + verb + theme + "."
+        self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + theme + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
