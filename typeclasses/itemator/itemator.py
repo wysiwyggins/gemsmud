@@ -153,7 +153,6 @@ class Item(DefaultObject):
         verb = self.getVerb()
         theme = self.getTheme()
         self.item_key = key
-        self.item_name = name
         anAdjective = self.addAorAn(adjective)
         self.item_description = color + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
