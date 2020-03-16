@@ -136,7 +136,7 @@ class Item(DefaultObject):
         }
         return self.item_proto
 
-def generateArt(self):
+    def generateArt(self):
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
