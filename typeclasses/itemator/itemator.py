@@ -69,16 +69,12 @@ class Item(DefaultObject):
         return verb
     
     def getTitle(self):
-        r = random.randint(0, 5)
-        g = random.randint(0, 5)
-        b = random.randint(0, 5)
         titlesFO = open("typeclasses/itemator/word_lists/artTitles.txt")
         titlesList = list(titlesFO)
         titlesSelection = random.randint(0, len(titlesList) - 1)
         title = titlesList[titlesSelection]
         title = title.rstrip("\n")
         title = title.title()
-        title = "|" + str(r) + str(g) + str(b) + title + "|n"
         titlesFO.close()
         return title
 
@@ -144,19 +140,25 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateArt(self):
+        r = random.randint(0, 5)
+        g = random.randint(0, 5)
+        b = random.randint(0, 5)
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
         artwork = self.getArtwork()
         skill = self.getSkill()
-        title = self.getTitle()
+        key = self.getTitle()
+        name = "|" + str(r) + str(g) + str(b) + key + "|n"
         verb = self.getVerb()
         theme = self.getTheme()
-        self.item_name = title
+        self.item_key = key
+        self.item_name = name
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
-            "key": self.item_name,
+            "key": self.item_key,
+            "name": self.item_name,
             "typeclass": "typeclasses.objects.Object",
             "desc": self.item_description,
         }
