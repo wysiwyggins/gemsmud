@@ -81,9 +81,11 @@ class Item(DefaultObject):
 
     def addAorAn(self, word):
         if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
-            word = "an " + word
+            word = "An " + word
         elif word[-1] != "s":
-            word = "a " + word
+            word = "A " + word
+        else:
+            word = "One " + word
         return word
 
     def generateItem(self):
@@ -149,7 +151,7 @@ class Item(DefaultObject):
         theme = self.getTheme()
         self.item_name = title
         anAdjective = self.addAorAn(adjective)
-        self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + theme + "."
+        self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
