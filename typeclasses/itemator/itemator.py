@@ -149,13 +149,13 @@ class Item(DefaultObject):
         artwork = self.getArtwork()
         skill = self.getSkill()
         key = self.getTitle()
-        name = "|" + str(r) + str(g) + str(b) + key + "|n"
+        color = "|" + str(r) + str(g) + str(b)
         verb = self.getVerb()
         theme = self.getTheme()
         self.item_key = key
         self.item_name = name
         anAdjective = self.addAorAn(adjective)
-        self.item_description = "'" + key + "'" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
+        self.item_description = color + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
             "key": self.item_key,
             "name": self.item_name,
