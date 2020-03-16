@@ -155,7 +155,7 @@ class Item(DefaultObject):
         self.item_key = key
         self.item_name = name
         anAdjective = self.addAorAn(adjective)
-        self.item_description = anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
+        self.item_description key + ": \n"= anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
         self.item_proto = {
             "key": self.item_key,
             "name": self.item_name,
