@@ -5,7 +5,6 @@ glass apple
 apron
 shoe
 bag
-baguette
 ball
 banana
 battery
@@ -44,7 +43,7 @@ curtain
 cylinder
 dice
 disk
-Scissors
+scissors
 plectrum
 engine
 eyeball
@@ -53,7 +52,6 @@ flask
 flute
 football
 fork
-Jambox
 glass
 glove
 marble
@@ -62,7 +60,6 @@ hat box
 iron
 tiny hand
 ironing board
-jar of kimchee
 key
 knife
 laptop
@@ -72,10 +69,8 @@ loaf
 lobster
 log
 lunchbox
-Mac Plus
 matchbox
 melon
-menhir
 metronome
 milk jug
 model giraffe
@@ -88,7 +83,6 @@ padlock
 paintbrush
 pencil
 photocopier
-piano
 pineapple
 pyramid
 record
@@ -163,3 +157,86 @@ key
 rubik's cube
 tea cozy
 saddle
+jar
+box
+clear resin block
+gilt frame
+bottle
+green bottle
+blue bottle
+brown bottle
+coke bottle
+jam jar
+bell jar
+test tube
+kettle
+net
+carrier bag
+bin
+bin bag
+cardboard box
+lead box
+concrete box
+safe
+plastic cup
+mug
+brushed aluminium box
+flight case
+padded envelope
+book
+Kinder Surprise egg capsule
+vase
+lead block
+parcel
+ball of string
+coffin
+washing machine
+toolbox
+cupboard
+wardrobe
+chair
+car
+potato sack
+paper bag
+origami box
+antique box
+instrument case
+glass case
+fishbowl
+fish tank
+dish
+plate
+cookie jar
+bread bin
+ziplock bag
+fridge
+freezer
+envelope
+spray can
+violin case
+guitar case
+suitcase
+briefcase
+backpack
+pint glass
+paper cone
+icecream cone
+traffic cone
+hamster cage
+birdcage
+kennel
+garden shed
+cucumber frame
+video box
+plant pot
+sink
+bath
+toilet
+dog dish
+balloon
+syringe
+matchbox
+can
+tin
+pencil case
+pencil tin
