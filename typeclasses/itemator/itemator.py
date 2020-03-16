@@ -34,7 +34,7 @@ class Item(DefaultObject):
         colorsFO.close()
         return color
 
-   def getSkill(self):
+    def getSkill(self):
         skillsFO = open("typeclasses/itemator/word_lists/skills.txt")
         skillsList = list(skillsFO)
         selection = random.randint(0, len(skillsList) - 1)
