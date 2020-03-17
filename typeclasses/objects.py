@@ -347,14 +347,15 @@ class Counter(Readable):
         warningtext = " "
         breakdowntext = "\n \n|555CITIZENS AND BELONGINGS:|n"
         for x in Character.objects.all():
-            breakdowntext += "\t |035" + "{x}|n".format(x=x)
+            chartext += "\t |035" + "{x}|n".format(x=x)
+        for x in Character.objects.all():
             for i in x.contents:
                 breakdowntext += "\n |555{i}|n".format(i=i)
             breakdowntext += "\t"
         if cnt > 1000:
             overcount = 1000 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
-        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
+        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + chartext + "\n" + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
             artsCount=artsCount) + "\n \t" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n \t" + cursedNames + "|n" + "\n" + "Check your own inventory at any time with |555inv|n."
 
         self.db.desc = self.db.readable_text
