@@ -325,7 +325,7 @@ class Counter(Readable):
         """
         I'd love to also maybe show how many items each character has incinerated too, I tried using the source_location arg of at_obj_received in incinerator, but it gets the room, not the player who gave the item.
         """
-        cursed = search_object_attribute(key="cursed", category=None, value=None)
+        cursed = search_object_attribute(key=None, category="cursed", value="true")
         cursedList = []
         for item in cursed:
             cursedList.append(item.name)
