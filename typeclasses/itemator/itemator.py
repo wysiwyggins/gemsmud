@@ -82,7 +82,7 @@ class Item(DefaultObject):
         titlesTwoFO = open("typeclasses/itemator/word_lists/artTitles2.txt")
         titlesTwoList = list(titlesTwoFO)
         titlesTwoSelection = random.randint(0, len(titlesTwoList) - 1)
-        titleTwo = titlesList[titlesSelection]
+        titleTwo = titlesTwoList[titlesSelection]
         titleTwo = titleTwo.rstrip("\n")
         titleTwo = titleTwo.title()
         titlesTwoFO.close()
