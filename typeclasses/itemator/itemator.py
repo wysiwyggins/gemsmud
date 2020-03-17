@@ -174,7 +174,7 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "plural_key": "the",
+                "artwork": true,
             }
         if roll >= 19:
             self.item_description = "|500" + "'" + key + "'|n" + ": \n |401 An unspeakable anathema |n " + artwork + " forged in " + color + " " + substance + ". " + "It embodies profane " + skill + " as it " + verb + " " + theme + "."
@@ -182,7 +182,8 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "plural_key": "the",
+                "artwork": true,
+                "cursed": true,
             }
         else:
             self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
@@ -190,7 +191,7 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "plural_key": "the",
+                "artwork": true,
             }
         return self.item_proto
 
