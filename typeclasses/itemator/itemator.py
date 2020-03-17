@@ -182,8 +182,8 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "artwork": true,
-                "cursed": true,
+                "artwork": "true",
+                "cursed": "true",
             }
         else:
             self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
@@ -191,7 +191,7 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "artwork": true,
+                "artwork": "true",
             }
         return self.item_proto
 
