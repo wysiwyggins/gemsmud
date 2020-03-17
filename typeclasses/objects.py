@@ -330,14 +330,14 @@ class Counter(Readable):
         for item in cursed:
             cursedList.append(item.name)
         cursedCount = len(cursedList)
-        cursedNames = "\n\t".join(cursedList)
+        cursedNames = "\n \t".join(cursedList)
         arts = search_object_attribute(
             key="artwork", category=None, value="true")
         artsList = []
         for item in arts:
             artsList.append(item.name)
         artsCount = len(artsList)
-        artsNames = "\n\t".join(artsList)
+        artsNames = "\n \t".join(artsList)
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
         cnt = cnt_all - cnt_omit
@@ -354,7 +354,7 @@ class Counter(Readable):
             overcount = 1000 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
-            artsCount=artsCount) + "\n" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames + "|n" + "Check your own inventory at any time with |555inv|n."
+            artsCount=artsCount) + "\n" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames + "|n" + "\n|" + "Check your own inventory at any time with |555inv|n."
 
         self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
             artsCount=artsCount) + "\n" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames + "|n" + "Check your own inventory at any time with |555inv|n."
