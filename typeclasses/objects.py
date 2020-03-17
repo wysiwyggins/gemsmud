@@ -314,7 +314,7 @@ class Incinerator(DefaultObject):
             message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
             self.location.msg_contents(message) 
         """
-        if moved_obj.db.cursed = True:
+        if moved_obj.db.cursed == True:
             message = "|500the {objectname} smoulders. A sinister presence leaves the room and you feel your jaw unclench.|n".format(objectname=moved_obj.name)
         else:
             message = "|500the {objectname} bursts into flames inside the incinerator.|n".format(objectname=moved_obj.name)
