@@ -154,6 +154,7 @@ class Item(DefaultObject):
         r = random.randint(0, 5)
         g = random.randint(0, 5)
         b = random.randint(0, 5)
+        roll = random.randint(0, 20)
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
@@ -165,14 +166,24 @@ class Item(DefaultObject):
         textcolor = "|" + str(r) + str(g) + str(b)
         verb = self.getVerb()
         theme = self.getTheme()
-        self.item_key = key
         anAdjective = self.addAorAn(adjective)
-        self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
-        self.item_proto = {
-            "key": self.item_key,
-            "typeclass": "typeclasses.objects.Object",
-            "desc": self.item_description,
-        }
+        self.item_key = key
+        if roll >= 19:
+            self.item_description = "|500" + "'" + key + "'|n" + ": \n |555|* An unspeakable anathema |n" + artwork + " forged in " + \
+                color + " " + substance + ". " + "It embodies profane " + \
+                skill + " as it " + verb + " " + theme + "."
+            self.item_proto = {
+                "key": self.item_key,
+                "typeclass": "typeclasses.objects.Object",
+                "desc": self.item_description,
+            }
+        else:
+            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
+            self.item_proto = {
+                "key": self.item_key,
+                "typeclass": "typeclasses.objects.Object",
+                "desc": self.item_description,
+            }
         return self.item_proto
 
 
