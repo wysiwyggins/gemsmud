@@ -324,7 +324,11 @@ class Counter(Readable):
         """
         I'd love to also maybe show how many items each character has incinerated too, I tried using the source_location arg of at_obj_received in incinerator, but it gets the room, not the player who gave the item.
         """
-
+        cursed = search_object_attribute(key=cursed, category=None, value=true)
+        cursedNames = []
+            for item in cursed:
+                cursedNames.append(item.name)
+        cursedCount = len(cursedNames)
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
         cnt = cnt_all - cnt_omit
@@ -340,6 +344,6 @@ class Counter(Readable):
         if cnt > 1000:
             overcount = 1000 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
-        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext
+        self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames
         self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext +"\n" + "Check your own inventory at any time with |555inv|n."
         super().at_desc(looker)
