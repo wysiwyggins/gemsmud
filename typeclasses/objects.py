@@ -329,7 +329,7 @@ class Counter(Readable):
         cursedList = []
         for item in cursed:
             cursedList.append(item.name)
-        cursedCount = len(cursedNames)
+        cursedCount = len(cursedList)
         cursedNames = "\n".join(cursedList)
         cnt_omit = Object.objects.filter(db_typeclass_path="typeclasses.rooms.DefaultRoom, typeclasses.hybrid_room.HybridRoom, typeclasses.exits.Exit").count()
         cnt_all = ObjectDB.objects.all().count()
