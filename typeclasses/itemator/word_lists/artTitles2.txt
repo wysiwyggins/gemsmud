@@ -36,7 +36,7 @@ agency
 aggressor
 agony
 aide
-air_conditioner
+air conditioner
 airboat
 airbrakes
 airbus
@@ -65,7 +65,7 @@ amazement
 ambulance
 amputee
 amulet
-amusement_park
+amusement park
 aneurism
 angel
 anger
@@ -92,16 +92,16 @@ architect
 archway
 argument
 arm
-armored_vehicle
+armored vehicle
 armory
 arms
 arrest
-arrest_warrant
+arrest warrant
 arrested
 arrow
 arson
 arsonist
-art_gallery
+art gallery
 artist
 ashes
 ashtray
@@ -124,14 +124,14 @@ authority
 auto
 autogiro
 autograph
-automatic_pistol
+automatic pistol
 automobile
 automobiles
 autopsy
 aviation
 awning
 ax
-baby_sitter
+baby sitter
 babysitter
 back
 backer
@@ -159,7 +159,7 @@ bartender
 bat
 bathroom
 baton
-battering_ram
+battering ram
 battle
 battler
 battlewagon
@@ -172,7 +172,7 @@ belief
 believer
 belongings
 beloved
-belt_buckle
+belt buckle
 benefactor
 beneficiary
 betrayal
@@ -190,21 +190,21 @@ binman
 biplane
 bird
 birthday
-birthday_cake
+birthday cake
 bitterness
 blade
-blank_check
+blank check
 blasphemer
 blast
 blaze
 blessing
 blimp
-blood_clot
+blood clot
 blow
 blowback
 blows
 blowup
-boa_constrictor
+boa constrictor
 boat
 boater
 body
@@ -218,7 +218,7 @@ bond
 bondsman
 bonfire
 bong
-booby_trap
+booby trap
 book
 bookbag
 bookcase
@@ -236,7 +236,7 @@ brake
 braked
 brakes
 braking
-brass_knuckles
+brass knuckles
 bravery
 brawl
 breath
@@ -248,7 +248,7 @@ briefly
 broadside
 brokenness
 broom
-broom_handle
+broom handle
 broomstick
 brother
 buddy
@@ -257,7 +257,7 @@ building
 bulldog
 bulldozer
 bullet
-bulletproof_vest
+bulletproof vest
 bullets
 burden
 burglar
@@ -265,7 +265,7 @@ burglars
 bus
 businessman
 businesswoman
-butcher_knife
+butcher knife
 butt
 bystander
 bystanders
@@ -282,7 +282,7 @@ campsite
 candle
 candleholder
 candles
-candy_cane
+candy cane
 canister
 cannonball
 canoe
@@ -317,9 +317,9 @@ cauldron
 cave
 ceiling
 celebration
-cell_phone
+cell phone
 cellmate
-cement_mixer
+cement mixer
 cemetery
 cenotaph
 center
@@ -356,8 +356,8 @@ church
 churchgoer
 cigar
 cigarette
-cigarette_butt
-cigarette_lighter
+cigarette butt
+cigarette lighter
 citation
 citizen
 city
@@ -416,7 +416,7 @@ contritely
 contriteness
 contrition
 controversy
-convenience_store
+convenience store
 conviction
 convincer
 convoy
@@ -535,7 +535,7 @@ disability
 disagreement
 disappointment
 disbelief
-disc_jockey
+disc jockey
 disciple
 discussion
 disdain
@@ -572,7 +572,7 @@ doubter
 downturn
 dragon
 dragster
-drainage_ditch
+drainage ditch
 dream
 dresser
 driver
@@ -582,8 +582,8 @@ driveway
 driving
 drug
 drunk
-drunk_driving
-duffel_bag
+drunk driving
+duffel bag
 dumpster
 dustcart
 earthmover
@@ -601,7 +601,7 @@ electrician
 electrocuted
 elephant
 elevator
-elevator_shaft
+elevator shaft
 embankment
 embarrassment
 embattled
@@ -662,7 +662,7 @@ fear
 fears
 feelings
 fence
-ferris_wheel
+ferris wheel
 ferry
 ferryboat
 feud
@@ -677,7 +677,7 @@ finality
 finally
 finger
 fire
-fire_hydrant
+fire hydrant
 firearm
 fireball
 firebomb
@@ -694,8 +694,8 @@ firetruck
 firework
 fireworks
 fisherman
-fishing_boat
-fishing_rod
+fishing boat
+fishing rod
 fist
 fistfight
 fists
@@ -708,11 +708,11 @@ flashlight
 flatcar
 flier
 flight
-flight_attendant
+flight attendant
 floatplane
 flyswatter
 foe
-folding_chair
+folding chair
 follower
 footbridge
 footlocker
@@ -732,15 +732,15 @@ fountain
 foxhole
 fracas
 fragment
-freight_train
+freight train
 freightliner
 friend
 friends
 friendship
-front_porch
+front porch
 frustration
 frustrations
-frying_pan
+frying pan
 fugitive
 fund
 fundraiser
@@ -777,7 +777,7 @@ goblet
 goddaughter
 godmother
 godson
-golf_cart
+golf cart
 golfcart
 gong
 gorilla
@@ -800,15 +800,15 @@ grieve
 grieves
 grieving
 grin
-grizzly_bear
-grocery_store
+grizzly bear
+grocery store
 groomsman
 ground
 groundswell
 grudge
 guardhouse
 guardian
-guardian_angel
+guardian angel
 guardrail
 guardsman
 gun
@@ -839,7 +839,7 @@ handgun
 handprint
 handrail
 handyman
-hang_glider
+hang glider
 hangar
 hardhat
 hardship
@@ -993,7 +993,7 @@ kite
 kitten
 klansman
 knife
-knife_blade
+knife blade
 knifeman
 knifepoint
 knight
@@ -1013,7 +1013,7 @@ lap
 lapper
 laundromat
 lawmaker
-lawn_mower
+lawn mower
 lawnmower
 lawsuit
 lawyer
@@ -1028,12 +1028,12 @@ legislator
 leprechaun
 lesson
 library
-license_plate
+license plate
 lieutenant
 life
 lifelong
-light_bulb
-lightning_rod
+light bulb
+lightning rod
 likeness
 limo
 limousine
@@ -1051,7 +1051,7 @@ lottery
 lover
 loyalty
 luggage
-luggage_rack
+luggage rack
 lumberyard
 lunged
 mace
@@ -1114,7 +1114,7 @@ money
 moneybag
 moneymaker
 monkey
-monkey_wrench
+monkey wrench
 monoplane
 monorail
 monster
@@ -1132,8 +1132,8 @@ motivation
 motivator
 motocross
 motor
-motor_scooter
-motor_vehicle
+motor scooter
+motor vehicle
 motorbike
 motorboat
 motorcade
@@ -1143,7 +1143,7 @@ motorcyclist
 motorhome
 motorist
 motorman
-mountain_climber
+mountain climber
 mourn
 mourned
 mourner
@@ -1181,7 +1181,7 @@ nightspot
 nightstick
 noose
 nutcracker
-oak_tree
+oak tree
 obituary
 object
 objection
@@ -1195,7 +1195,7 @@ officers
 official
 ogre
 old
-olive_branch
+olive branch
 once
 one
 opinion
@@ -1217,13 +1217,13 @@ ovation
 overpass
 owl
 owner
-oxygen_mask
+oxygen mask
 padlock
 pain
 pal
 pall
 pallbearer
-palm_tree
+palm tree
 panhandler
 paparazzo
 paperweight
@@ -1265,7 +1265,7 @@ pedicab
 pedophile
 pension
 pensioner
-pepper_spray
+pepper spray
 performer
 perpetrator
 person
@@ -1276,16 +1276,16 @@ pickax
 pickaxe
 picketer
 pickup
-pickup_truck
+pickup truck
 pier
-piggy_bank
+piggy bank
 piggybank
 pilgrim
 pillar
 pillow
 pilot
 pinata
-pine_tree
+pine tree
 pipe
 pistol
 pitbull
@@ -1296,7 +1296,7 @@ plane
 planes
 plaque
 plasterer
-plastic_bag
+plastic bag
 player
 playhouse
 playmate
@@ -1356,7 +1356,7 @@ pugilist
 pulpit
 punch
 punched
-punching_bag
+punching bag
 punishment
 puppet
 puppeteer
@@ -1379,7 +1379,7 @@ raceway
 racing
 radioed
 rafter
-rag_doll
+rag doll
 rage
 railing
 railroader
@@ -1388,10 +1388,10 @@ ramification
 rapist
 rapper
 ravine
-razor_blade
+razor blade
 reaction
 realtor
-rearview_mirror
+rearview mirror
 reason
 rebirth
 rebuke
@@ -1449,8 +1449,8 @@ robbers
 robbery
 robe
 rocket
-rocket_launcher
-roller_coaster
+rocket launcher
+roller coaster
 roof
 roofer
 room
@@ -1485,13 +1485,13 @@ scorpion
 scrapyard
 screwdriver
 scrutiny
-scuba_diver
+scuba diver
 scuffle
 sculptor
 sculpture
 seaplane
 seat
-seat_belt
+seat belt
 seatbelt
 seater
 sedan
@@ -1506,7 +1506,7 @@ servant
 serviceman
 servicewoman
 setback
-sex_offender
+sex offender
 shadow
 shakeup
 shame
@@ -1521,7 +1521,7 @@ shooter
 shop
 shopkeeper
 shoplifter
-shopping_mall
+shopping mall
 shortly
 shot
 shotgun
@@ -1541,9 +1541,9 @@ sinner
 sister
 skateboard
 skateboarder
-skating_rink
+skating rink
 skepticism
-ski_mask
+ski mask
 skidoo
 skidpan
 skirmish
@@ -1567,7 +1567,7 @@ smash
 smile
 smirk
 smoke
-smoke_detector
+smoke detector
 smoker
 smokestack
 snake
@@ -1583,7 +1583,7 @@ soapbox
 sobbed
 sobbing
 sobs
-soft_drink
+soft drink
 solace
 soldier
 solider
@@ -1595,12 +1595,12 @@ sooner
 sorrow
 sorrowing
 soul
-soul_searching
+soul searching
 southbound
 souvenir
 spanner
 sparkplug
-sparring_partner
+sparring partner
 spat
 spear
 spectator
@@ -1618,14 +1618,14 @@ spirt
 sportsman
 spotlight
 squirrel
-squirt_gun
+squirt gun
 stab
 stabbed
 stabber
 stabbing
 stadium
 staffer
-stained_glass
+stained glass
 staircase
 stairway
 stairwell
@@ -1634,17 +1634,17 @@ star
 state
 statement
 station
-station_wagon
+station wagon
 statue
 statues
 statuette
 stature
-steak_knife
+steak knife
 steamroller
 steelworker
 steeple
 steeplejack
-steering_wheel
+steering wheel
 step
 stepbrother
 stepdaughter
@@ -1675,14 +1675,14 @@ stroller
 strongbox
 struggle
 struggles
-stuffed_animal
-stumbling_block
-stun_gun
+stuffed animal
+stumbling block
+stun gun
 stunt
 stuntman
 substation
 suggestion
-suicide_bomber
+suicide bomber
 suitcase
 sunbather
 superjet
@@ -1722,7 +1722,7 @@ teapot
 tearful
 tearfully
 tears
-teddy_bear
+teddy bear
 teen
 teenager
 telephoned
@@ -1731,9 +1731,9 @@ tempest
 temple
 temporarily
 tenet
-tennis_racket
+tennis racket
 tent
-theme_park
+theme park
 thief
 thinker
 threat
@@ -1744,7 +1744,7 @@ thumbtack
 thunderbolt
 thursday
 ticket
-tidal_wave
+tidal wave
 tiger
 time
 tipster
@@ -1783,13 +1783,13 @@ tram
 transformer
 transporter
 trapdoor
-trash_bin
+trash bin
 trashcan
 trauma
 treasure
 tree
-tree_stump
-tree_trunk
+tree stump
+tree trunk
 trembler
 trespasser
 tribute
@@ -1900,8 +1900,8 @@ wife
 wig
 wildfire
 window
-window_pane
-window_washer
+window pane
+window washer
 windscreen
 windshield
 windstorm
