@@ -354,9 +354,7 @@ class Counter(Readable):
             overcount = 1000 - cnt
             warningtext = "|500Warning, Zone 25 is now {overcount} item(s) over allowed limits.|n".format(overcount=overcount)
         self.db.readable_text = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
-            artsCount=artsCount) + "\n" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames + "|n" + "\n|" + "Check your own inventory at any time with |555inv|n."
+            artsCount=artsCount) + "\n \t" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n \t" + cursedNames + "|n" + "\n|" + "Check your own inventory at any time with |555inv|n."
 
-        self.db.desc = signtext + "\n" + countertext + "\n" + warningtext + breakdowntext + "\n|044Masterpeices: {artsCount}".format(
-            artsCount=artsCount) + "\n" + artsNames + "\n|500Cursed Objects: {cursedCount}".format(cursedCount=cursedCount) + "\n" + cursedNames + "|n" + "Check your own inventory at any time with |555inv|n."
-
+        self.db.desc = self.db.readable_text
         super().at_desc(looker)
