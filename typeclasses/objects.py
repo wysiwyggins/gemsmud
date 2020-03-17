@@ -10,7 +10,8 @@ the other types, you can do so by adding this as a multiple
 inheritance.
 
 """
-from evennia import DefaultObject, DefaultExit, Command, CmdSet, search_object, search_object_attribute
+from evennia import DefaultObject, DefaultExit, Command, CmdSet, search_object
+from evennia.utils import search
 from evennia.objects.models import ObjectDB
 import inspect
 from typeclasses.characters import Character
