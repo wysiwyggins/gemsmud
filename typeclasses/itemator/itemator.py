@@ -77,6 +77,16 @@ class Item(DefaultObject):
         title = title.title()
         titlesFO.close()
         return title
+    
+    def getTitleTwo(self):
+        titlesTwoFO = open("typeclasses/itemator/word_lists/artTitles2.txt")
+        titlesTwoList = list(titlesTwoFO)
+        titlesTwoSelection = random.randint(0, len(titlesTwoList) - 1)
+        titleTwo = titlesList[titlesSelection]
+        titleTwo = titleTwo.rstrip("\n")
+        titleTwo = titleTwo.title()
+        titlesTwoFO.close()
+        return titleTwo
 
     def addAorAn(self, word):
         if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
@@ -147,8 +157,10 @@ class Item(DefaultObject):
         substance = self.getSubstance()
         adjective = self.getAdjective()
         artwork = self.getArtwork()
+        title = self.getTitle()
+        titleTwo = self.getTitleTwo()
         skill = self.getSkill()
-        key = self.getTitle()
+        key = title + " " + titleTwo
         textcolor = "|" + str(r) + str(g) + str(b)
         verb = self.getVerb()
         theme = self.getTheme()
