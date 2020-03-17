@@ -669,11 +669,11 @@ rhodolite
 rhodonite
 richterite
 riebeckite
-rock_crystal
+rock crystal
 rockbridgeite
 romanechite
 rosasite
-rose_quartz
+rose quartz
 roselite
 ruby
 rutile
