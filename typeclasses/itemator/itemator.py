@@ -93,7 +93,7 @@ class Item(DefaultObject):
             word = "An " + word
         elif word[-1] != "s":
             word = "A " + word
-        else:
+        except IndexError:
             word = "One " + word
         return word
 
