@@ -168,10 +168,15 @@ class Item(DefaultObject):
         theme = self.getTheme()
         anAdjective = self.addAorAn(adjective)
         self.item_key = key
+        if roll <= 10:
+            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " piece of " + artwork + " created from " + color + " " + substance + ". " + "It's a masterful work of " + skill + " as it " + verb + " " + theme + "."
+            self.item_proto = {
+                "key": self.item_key,
+                "typeclass": "typeclasses.objects.Object",
+                "desc": self.item_description,
+            }
         if roll >= 19:
-            self.item_description = "|500" + "'" + key + "'|n" + ": \n |555|* An unspeakable anathema |n" + artwork + " forged in " + \
-                color + " " + substance + ". " + "It embodies profane " + \
-                skill + " as it " + verb + " " + theme + "."
+            self.item_description = "|500" + "'" + key + "'|n" + ": \n |555|* An unspeakable anathema |n" + artwork + " forged in " + color + " " + substance + ". " + "It embodies profane " + skill + " as it " + verb + " " + theme + "."
             self.item_proto = {
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
