@@ -89,10 +89,11 @@ class Item(DefaultObject):
         return titleTwo
 
     def addAorAn(self, word):
-        if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
-            word = "An " + word
-        elif word[-1] != "s":
-            word = "A " + word
+        try:
+            if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
+                word = "An " + word
+            elif word[-1] != "s":
+                word = "A " + word
         except IndexError:
             word = "One " + word
         return word
