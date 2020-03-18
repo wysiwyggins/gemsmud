@@ -199,13 +199,12 @@ class Item(DefaultObject):
 
     def generateSciFiBook(self):
         book_text = "***"
-        bookDescription = "A paperback book"
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
-        self.book_name = color + " book"
-        #self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
+        self.item_name = color + " book"
+        self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
         for i in range(4):
             try:
                 book_text += text_model.make_sentence(tries=100) + " "
@@ -214,13 +213,13 @@ class Item(DefaultObject):
         self.bookDescription = book_text
         bookCorpusFO.close()
         self.item_proto = {
-            "key": self.book_name,
+            "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
             "desc": self.bookDescription,
             #"readable_text": self.readable_text,
         }
 """
-generateSciFiBook does this right now- something is up with the readable typeclass:
+generateSciFiBook does this right now:
 
 Traceback(most recent call last):
   File "/home/wwiggins/GEMS-dev/evennia/evennia/commands/cmdhandler.py", line 631, in _run_command
