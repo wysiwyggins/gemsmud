@@ -271,7 +271,7 @@ class CmdSetReadable(CmdSet):
         Called when the cmdset is created.
         """
         self.add(CmdRead())
-    super().at_cmdset_creation()
+        super().at_cmdset_creation()
 
 
 class Readable(DefaultObject):
