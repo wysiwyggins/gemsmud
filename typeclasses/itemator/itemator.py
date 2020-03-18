@@ -217,7 +217,7 @@ class Item(DefaultObject):
             "key": self.book_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
-            "readable_text": self.readable_text,
+            #"readable_text": self.readable_text,
         }
 
     
