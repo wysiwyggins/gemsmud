@@ -205,7 +205,7 @@ class Item(DefaultObject):
         text_model = markovify.NewlineText(text)
         self.item_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
-        for i in range(4):
+        for i in range(60):
             try:
                 book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
