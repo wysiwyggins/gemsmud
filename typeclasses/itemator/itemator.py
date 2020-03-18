@@ -198,6 +198,7 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateSciFiBook(self):
+        book_text = "***"
         bookDescription = "A paperback book"
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
