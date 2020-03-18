@@ -205,19 +205,33 @@ class Item(DefaultObject):
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
         self.book_name = color + " book"
-        self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
+        #self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
         for i in range(4):
             try:
                 book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
                 book_text += "ROCKETS! ROCKETS! ROCKETS!"
-        self.readable_text = book_text
+        self.bookDescription = book_text
         bookCorpusFO.close()
         self.item_proto = {
             "key": self.book_name,
-            "typeclass": "typeclasses.objects.Readable",
+            "typeclass": "typeclasses.objects.Object",
             "desc": self.bookDescription,
-            "readable_text": self.readable_text,
+            #"readable_text": self.readable_text,
         }
+"""
+generateSciFiBook does this right now- something is up with the readable typeclass:
 
-    
+Traceback(most recent call last):
+  File "/home/wwiggins/GEMS-dev/evennia/evennia/commands/cmdhandler.py", line 631, in _run_command
+  ret = cmd.func()
+  File "/home/wwiggins/GEMS-dev/GEMS/typeclasses/objects.py", line 199, in func
+  real_item = spawn(item_proto)
+  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/spawner.py", line 744, in spawn
+  prototypes = [protlib.homogenize_prototype(prot) for prot in prototypes]
+  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/spawner.py", line 744, in < listcomp >
+  prototypes = [protlib.homogenize_prototype(prot) for prot in prototypes]
+  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/prototypes.py", line 89, in homogenize_prototype
+  attrs = list(prototype.get("attrs", []))  # break reference
+AttributeError: 'NoneType' object has no attribute 'get'
+"""
