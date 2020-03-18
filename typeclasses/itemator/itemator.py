@@ -210,27 +210,12 @@ class Item(DefaultObject):
                 book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
                 book_text += "ROCKETS! ROCKETS! ROCKETS!"
-        self.bookDescription = book_text
         bookCorpusFO.close()
+        self.readable_text = book_text
         self.item_proto = {
             "key": self.item_name,
-            "typeclass": "typeclasses.objects.Object",
+            "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
-            #"readable_text": self.readable_text,
+            "readable_text": self.readable_text,
         }
-"""
-generateSciFiBook does this right now:
-
-Traceback(most recent call last):
-  File "/home/wwiggins/GEMS-dev/evennia/evennia/commands/cmdhandler.py", line 631, in _run_command
-  ret = cmd.func()
-  File "/home/wwiggins/GEMS-dev/GEMS/typeclasses/objects.py", line 199, in func
-  real_item = spawn(item_proto)
-  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/spawner.py", line 744, in spawn
-  prototypes = [protlib.homogenize_prototype(prot) for prot in prototypes]
-  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/spawner.py", line 744, in < listcomp >
-  prototypes = [protlib.homogenize_prototype(prot) for prot in prototypes]
-  File "/home/wwiggins/GEMS-dev/evennia/evennia/prototypes/prototypes.py", line 89, in homogenize_prototype
-  attrs = list(prototype.get("attrs", []))  # break reference
-AttributeError: 'NoneType' object has no attribute 'get'
-"""
+        return self.item_proto
