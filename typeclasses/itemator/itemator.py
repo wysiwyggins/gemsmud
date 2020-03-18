@@ -207,15 +207,16 @@ class Item(DefaultObject):
         self.book_name = color + "book"
         for i in range(4):
             try:
-                self.book_text += text_model.make_sentence(tries=100) + " "
+                book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                self.book_text += "A book of science fiction. You can |555read|n it if you like."
+                book_text += "A book of science fiction. You can |555read|n it if you like."
+        self.readable_text = book_text
         bookCorpusFO.close()
         self.item_proto = {
             "key": self.book_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
-            "readable_text": self.book_text,
+            "readable_text": self.readable_text,
         }
 
     
