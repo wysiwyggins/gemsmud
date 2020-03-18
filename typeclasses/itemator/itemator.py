@@ -204,7 +204,7 @@ class Item(DefaultObject):
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
-        self.book_name = color + "book"
+        self.book_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
         for i in range(4):
             try:
@@ -217,7 +217,7 @@ class Item(DefaultObject):
             "key": self.book_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
-            #"readable_text": self.readable_text,
+            "readable_text": self.readable_text,
         }
 
     
