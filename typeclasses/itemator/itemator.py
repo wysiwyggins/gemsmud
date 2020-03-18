@@ -100,11 +100,13 @@ class Item(DefaultObject):
 
     def generateItem(self):
         
-        itemType = random.randint(0, 5)
+        itemType = random.randint(0, 6)
         if itemType <= 2:
             self.item_proto = self.generateTalisman()
         elif itemType == 3:
             self.item_proto = self.generateArt()
+        elif itemType == 4:
+            self.item_proto = self.generateSciFiBook()
         else:
             self.item_proto = self.generateGarment()
 
@@ -195,12 +197,9 @@ class Item(DefaultObject):
             }
         return self.item_proto
 
-
-""" Doesn't seem to be working yet, evennia/evennia/prototypes/prototypes.py", line 89, in homogenize_prototype
-
     def generateSciFiBook(self):
-        self.book_text = " "
-        self.bookDescription = "A paperback book"
+        book_text = " "
+        bookDescription = "A paperback book"
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
@@ -210,7 +209,7 @@ class Item(DefaultObject):
             try:
                 self.book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                self.book_text += "A fine book about rockets. "
+                self.book_text += "A book of science fiction. You can |555read|n it if you like."
         bookCorpusFO.close()
         self.item_proto = {
             "key": self.book_name,
@@ -219,5 +218,4 @@ class Item(DefaultObject):
             "readable_text": self.book_text,
         }
 
-"""
     
