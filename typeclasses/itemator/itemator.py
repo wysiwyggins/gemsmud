@@ -174,7 +174,7 @@ class Item(DefaultObject):
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
                 "desc": self.item_description,
-                "artwork": true,
+                "artwork": "true",
             }
         if roll >= 19:
             self.item_description = "|500" + "'" + key + "'|n" + ": \n |401 An unspeakable anathema |n " + artwork + " forged in " + color + " " + substance + ". " + "It embodies profane " + skill + " as it " + verb + " " + theme + "."
