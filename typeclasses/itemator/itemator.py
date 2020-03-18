@@ -205,11 +205,12 @@ class Item(DefaultObject):
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
         self.book_name = color + "book"
+        self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
         for i in range(4):
             try:
                 book_text += text_model.make_sentence(tries=100) + " "
             except TypeError:
-                book_text += "A book of science fiction. You can |555read|n it if you like."
+                book_text += "ROCKETS! ROCKETS! ROCKETS!"
         self.readable_text = book_text
         bookCorpusFO.close()
         self.item_proto = {
