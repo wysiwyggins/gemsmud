@@ -207,7 +207,7 @@ class Item(DefaultObject):
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
         for i in range(60):
             try:
-                book_text += text_model.make_sentence(tries=100) + " "
+                book_text += text_model.make_sentence(tries=100) + "\n"
             except TypeError:
                 book_text += "ROCKETS! ROCKETS! ROCKETS!"
         bookCorpusFO.close()
