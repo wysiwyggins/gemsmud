@@ -220,7 +220,7 @@ class Item(DefaultObject):
         text_model = markovify.NewlineText(text)
         self.item_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
-        book_text += "The " + adjective + " " + book_name
+        book_text = "The " + adjective + " " + book_name
         book_text = book_text.title() + "\n\n"
         for i in range(60):
             try:
