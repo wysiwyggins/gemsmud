@@ -88,6 +88,22 @@ class Item(DefaultObject):
         titlesTwoFO.close()
         return titleTwo
 
+    def getTalismanName():
+        talismanFO = open("typeclasses/itemator/word_lists/talismans.txt")
+        talismanList = list(talismanFO)
+        selection = random.randint(0, len(talismanList) - 1)
+        talisman = talismanList[selection]
+        talisman = talisman.rstrip("\n")
+        talismanFO.close()
+
+    def getSciFiAdjective():
+        SciFiAdjectiveFO = open("typeclasses/itemator/word_lists/scifiwords.txt")
+        SciFiAdjectiveList = list(SciFiAdjectiveFO)
+        selection = random.randint(0, len(SciFiAdjectiveList) - 1)
+        SciFiAdjective = SciFiAdjectiveList[selection]
+        SciFiAdjective = SciFiAdjective.rstrip("\n")
+        SciFiAdjectiveFO.close()
+
     def addAorAn(self, word):
         try:
             if word[-1] != "s" and word[0] == "a" or word[0] == "e" or word[0] == "i" or word[0] == "o" or word[0] == "u":
@@ -111,6 +127,8 @@ class Item(DefaultObject):
             self.item_proto = self.generateGarment()
 
         return self.item_proto
+
+
     
     def generateGarment(self):
         clothesFO = open("typeclasses/itemator/word_lists/clothes.txt")
@@ -135,13 +153,8 @@ class Item(DefaultObject):
         color = self.getColor()
         substance = self.getSubstance()
         adjective = self.getAdjective()
-        talismanFO = open("typeclasses/itemator/word_lists/talismans.txt")
-        talismanList = list(talismanFO)
-        selection = random.randint(0, len(talismanList) - 1)
-        talisman = talismanList[selection]
-        talisman = talisman.rstrip("\n")
-        talismanFO.close()
-        self.item_name = talisman
+        name = self.getTalismanName()
+        self.item_name = name
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " " + \
             talisman + " made of " + color + " " + substance + "."
@@ -198,13 +211,16 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateSciFiBook(self):
-        book_text = "***"
+        adjective = self.getSciFiAdjective()
+        book_name = self.getTalismanName()
         color = self.getColor()
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
         self.item_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
+        book_text += "The " + adjective + " " + book_name
+        book_text = book_text.title() + "\n\n"
         for i in range(60):
             try:
                 book_text += text_model.make_sentence(tries=100) + "\n"
