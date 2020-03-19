@@ -150,6 +150,12 @@ class Item(DefaultObject):
         }
         return self.item_proto
 
+    def getTextColor(self):
+        r = random.randint(0, 5)
+        g = random.randint(0, 5)
+        b = random.randint(0, 5)
+        textcolor = "|" + str(r) + str(g) + str(b)
+        return textcolor
 
     def generateTalisman(self):
         color = self.getColor()
@@ -168,9 +174,6 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generateArt(self):
-        r = random.randint(0, 5)
-        g = random.randint(0, 5)
-        b = random.randint(0, 5)
         roll = random.randint(0, 20)
         color = self.getColor()
         substance = self.getSubstance()
@@ -180,7 +183,7 @@ class Item(DefaultObject):
         titleTwo = self.getTitleTwo()
         skill = self.getSkill()
         key = title + " " + titleTwo
-        textcolor = "|" + str(r) + str(g) + str(b)
+        textcolor = self.getTextColor()
         verb = self.getVerb()
         theme = self.getTheme()
         anAdjective = self.addAorAn(adjective)
@@ -219,10 +222,11 @@ class Item(DefaultObject):
         bookCorpusFO = open("typeclasses/itemator/word_lists/scifi_book_corpus.txt")
         text = bookCorpusFO.read()
         text_model = markovify.NewlineText(text)
+        textcolor = self.getTextColor()
         self.item_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
-        book_text = "The " + adjective + " " + book_name
-        book_text = book_text.title() + "\n\n"
+        book_text = textcolor "The " + adjective + " " + book_name +"|n"
+        book_text = "\n" + book_text.title() + "\n\n"
         for i in range(60):
             try:
                 book_text += text_model.make_sentence(tries=100) + "\n"
