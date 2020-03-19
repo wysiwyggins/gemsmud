@@ -95,7 +95,7 @@ class Item(DefaultObject):
         talisman = talismanList[selection]
         talisman = talisman.rstrip("\n")
         talismanFO.close()
-    return talisman
+        return talisman
 
     def getSciFiAdjective():
         SciFiAdjectiveFO = open("typeclasses/itemator/word_lists/scifiwords.txt")
