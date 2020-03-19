@@ -88,7 +88,7 @@ class Item(DefaultObject):
         titlesTwoFO.close()
         return titleTwo
 
-    def getTalismanName():
+    def getTalismanName(self):
         talismanFO = open("typeclasses/itemator/word_lists/talismans.txt")
         talismanList = list(talismanFO)
         selection = random.randint(0, len(talismanList) - 1)
@@ -97,7 +97,7 @@ class Item(DefaultObject):
         talismanFO.close()
         return talisman
 
-    def getSciFiAdjective():
+    def getSciFiAdjective(self):
         SciFiAdjectiveFO = open("typeclasses/itemator/word_lists/scifiwords.txt")
         SciFiAdjectiveList = list(SciFiAdjectiveFO)
         selection = random.randint(0, len(SciFiAdjectiveList) - 1)
