@@ -225,7 +225,7 @@ class Item(DefaultObject):
         textcolor = self.getTextColor()
         self.item_name = color + " book"
         self.bookDescription = "A book of science fiction. You can |555read|n it if you like."
-        book_text = textcolor "The " + adjective + " " + book_name +"|n"
+        book_text = textcolor + "The " + adjective + " " + book_name +"|n"
         book_text = "\n" + book_text.title() + "\n\n"
         for i in range(60):
             try:
