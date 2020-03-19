@@ -104,6 +104,7 @@ class Item(DefaultObject):
         SciFiAdjective = SciFiAdjectiveList[selection]
         SciFiAdjective = SciFiAdjective.rstrip("\n")
         SciFiAdjectiveFO.close()
+        return SciFiAdjective
 
     def addAorAn(self, word):
         try:
@@ -158,7 +159,7 @@ class Item(DefaultObject):
         self.item_name = name
         anAdjective = self.addAorAn(adjective)
         self.item_description = anAdjective + " " + \
-            talisman + " made of " + color + " " + substance + "."
+            name + " made of " + color + " " + substance + "."
         self.item_proto = {
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Object",
