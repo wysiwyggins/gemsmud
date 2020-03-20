@@ -254,20 +254,21 @@ class Item(DefaultObject):
         poem_name = text_model.make_short_sentence(30)
         poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
-        for i in range(6):
+        for i in range(5):
             roll = random.randint(0, 3)
             try:
-                poem_text += text_model.make_sentence(tries=100) + "\n"
-                poem_text += "\t\t" + text_model.make_short_sentence(120) + "\n\n"
                 if roll == 2:
-                    poem_text += "\n\t" + text_model.make_sentence(tries=100) + "\n\n"
+                    poem_text += "\t" + poem_name + text_model.make_sentence(tries=100) + "\n\n"
                 elif roll == 3:
                     poem_text += "\t\t" + text_model.make_short_sentence(80) + "\n\n"
+                else:
+                    poem_text += text_model.make_sentence(tries=100) + "\n"
+                    poem_text += "\t\t" + text_model.make_short_sentence(120) + "\n\n"
             except TypeError:
                 poem_text += "\n"
-        poem_text += "\n\n"
         roll = random.randint(0, 3)
         if roll ==1:
+            poem_text += "\n\t\t"
             poem_text += textcolor + text_model.make_sentence(tries=100) + " " + poem_name +"|n"
         poetryCorpusFO.close()
         self.item_name = poem_name
