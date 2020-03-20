@@ -4,7 +4,6 @@ from evennia import default_cmds
 import random
 import markovify
 from django.conf import settings
-import textwrap
 
 
 
@@ -252,8 +251,7 @@ class Item(DefaultObject):
         text_model = markovify.NewlineText(text)
         textcolor = self.getTextColor()
         self.poemDescription = "A chapbook of poetry. You can |555read|n it if you like."
-        poem_name = text_model.make_sentence(tries=100)
-        poem_name = textwrap.shorten(poem_name, width=20, placeholder="...")
+        poem_name = text_model.make_short_sentence(30)
         self.poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
         for i in range(60):
