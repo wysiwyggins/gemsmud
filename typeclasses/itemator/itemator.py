@@ -245,6 +245,7 @@ class Item(DefaultObject):
         return self.item_proto
 
     def generatePoem(self):
+        poem_name ="A poem"
         poetryCorpusFO = open(
             "typeclasses/itemator/word_lists/poetry_corpus.txt")
         text = poetryCorpusFO.read()
