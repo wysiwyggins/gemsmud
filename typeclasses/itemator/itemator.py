@@ -269,7 +269,7 @@ class Item(DefaultObject):
                 elif roll == 2:
                     poem_text += "\t" + poem_name  +" "+ text_model.make_sentence(tries=100) + "\n\n"
                 elif roll == 3:
-                    poem_text += "\t\t" + text_model.make_short_sentence(80) + " A" + thing + "."
+                    poem_text += "\t\t" + text_model.make_short_sentence(80) + ", the " + thing + ".\n"
                 elif roll == 4:
                     poem_text += text_model.make_sentence(tries=100) + "\n"
                     poem_text += text_model.make_sentence(tries=100) + "\n"
