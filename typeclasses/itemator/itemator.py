@@ -258,7 +258,7 @@ class Item(DefaultObject):
             try:
                 poem_text += text_model.make_sentence(tries=100) + "\n"
             except TypeError:
-                poem_text += "ROCKETS! ROCKETS! ROCKETS!"
+                poem_text += "\n"
         poem_text += "\n\n"
         poem_text += textcolor + text_model.make_sentence(tries=100) + "|n"
         poetryCorpusFO.close()
