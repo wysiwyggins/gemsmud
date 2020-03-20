@@ -4,6 +4,7 @@ from evennia import default_cmds
 import random
 import markovify
 from django.conf import settings
+import textwrap
 
 
 
@@ -118,13 +119,15 @@ class Item(DefaultObject):
 
     def generateItem(self):
         
-        itemType = random.randint(0, 6)
+        itemType = random.randint(0, 7)
         if itemType <= 2:
             self.item_proto = self.generateTalisman()
         elif itemType == 3:
             self.item_proto = self.generateArt()
         elif itemType == 4:
             self.item_proto = self.generateSciFiBook()
+        elif itemType == 5:
+            self.item_proto = self.generatePoem()
         else:
             self.item_proto = self.generateGarment()
 
@@ -238,6 +241,32 @@ class Item(DefaultObject):
             "key": self.item_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.bookDescription,
+            "readable_text": self.readable_text,
+        }
+        return self.item_proto
+
+    def generatePoem(self):
+        poetryCorpusFO = open(
+            "typeclasses/itemator/word_lists/poetry_corpus.txt")
+        text = poetryCorpusFO.read()
+        text_model = markovify.NewlineText(text)
+        textcolor = self.getTextColor()
+        self.poemDescription = "A chapbook of poetry. You can |555read|n it if you like."
+        poem_name = text_model.make_sentence(tries=100)
+        poem_name = textwrap.shorten(poem_name, width=20, placeholder="...")
+        poem_name = poem_name.title()
+        poem_text = "\n" + textcolor + poem_name + "|n\n"
+        for i in range(60):
+            try:
+                poem_text += text_model.make_sentence(tries=100) + "\n"
+            except TypeError:
+                poem_text += "ROCKETS! ROCKETS! ROCKETS!"
+        poetryCorpusFO.close()
+        self.readable_text = poem_text
+        self.item_proto = {
+            "key": self.poem_name,
+            "typeclass": "typeclasses.objects.Readable",
+            "desc": self.poemDescription,
             "readable_text": self.readable_text,
         }
         return self.item_proto
