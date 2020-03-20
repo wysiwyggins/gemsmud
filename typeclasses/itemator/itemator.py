@@ -250,6 +250,7 @@ class Item(DefaultObject):
             "typeclasses/itemator/word_lists/poetry_corpus.txt")
         text = poetryCorpusFO.read()
         text_model = markovify.NewlineText(text)
+        thing = self.getTitleTwo()
         textcolor = self.getTextColor()
         self.poemDescription = "A chapbook of poetry. You can |555read|n it if you like."
         poem_name = text_model.make_short_sentence(30)
@@ -267,7 +268,7 @@ class Item(DefaultObject):
                 elif roll == 2:
                     poem_text += "\t" + poem_name  +" "+ text_model.make_sentence(tries=100) + "\n\n"
                 elif roll == 3:
-                    poem_text += "\t\t" + text_model.make_short_sentence(80) + "\n\n"
+                    poem_text += "\t\t" + text_model.make_short_sentence(80) + " A" + thing + "."
                 elif roll == 4:
                     poem_text += text_model.make_sentence(tries=100) + "\n"
                     poem_text += text_model.make_sentence(tries=100) + "\n"
