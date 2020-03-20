@@ -254,11 +254,13 @@ class Item(DefaultObject):
         poem_name = text_model.make_short_sentence(30)
         poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
-        for i in range(60):
+        for i in range(9):
             try:
                 poem_text += text_model.make_sentence(tries=100) + "\n"
             except TypeError:
                 poem_text += "ROCKETS! ROCKETS! ROCKETS!"
+        poem_text += "\n\n"
+        poem_text += textcolor + text_model.make_sentence(tries=100) + "|n"
         poetryCorpusFO.close()
         self.item_name = poem_name
         self.readable_text = poem_text
