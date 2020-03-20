@@ -253,7 +253,10 @@ class Item(DefaultObject):
         textcolor = self.getTextColor()
         self.poemDescription = "A chapbook of poetry. You can |555read|n it if you like."
         poem_name = text_model.make_short_sentence(30)
-        poem_name = poem_name.title()
+        try:
+            poem_name = poem_name.title()
+        except:
+            poem_name = poem_name
         poem_text = "\n" + textcolor + poem_name + "|n\n"
         for i in range(5):
             roll = random.randint(0, 3)
