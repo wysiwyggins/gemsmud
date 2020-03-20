@@ -208,7 +208,7 @@ class Item(DefaultObject):
                 "cursed": "true",
             }
         else:
-            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + "It displays considerable " + skill + " as it " + verb + " " + theme + "."
+            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + title " displays considerable " + skill + " as it " + verb + " " + theme + "."
             self.item_proto = {
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
@@ -254,7 +254,7 @@ class Item(DefaultObject):
         poem_name = text_model.make_short_sentence(30)
         poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
-        for i in range(9):
+        for i in range(6):
             roll = random.randint(0, 3)
             try:
                 poem_text += text_model.make_sentence(tries=100) + "\n"
@@ -266,7 +266,9 @@ class Item(DefaultObject):
             except TypeError:
                 poem_text += "\n"
         poem_text += "\n\n"
-        poem_text += textcolor + text_model.make_sentence(tries=100) + "|n"
+        roll = random.randint(0, 3)
+        if roll ==1:
+            poem_text += textcolor + text_model.make_sentence(tries=100) + " " + poem_name +"|n"
         poetryCorpusFO.close()
         self.item_name = poem_name
         self.readable_text = poem_text
