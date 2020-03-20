@@ -262,8 +262,7 @@ class Item(DefaultObject):
                 elif roll == 3:
                     poem_text += "\t\t" + text_model.make_short_sentence(80) + "\n\n"
                 else:
-                    poem_text += text_model.make_sentence(tries=100) + "\n"
-                    poem_text += "\t\t" + text_model.make_short_sentence(120) + "\n\n"
+                    poem_text += "\t\t" + text_model.make_short_sentence(200) + "\n\n"
             except TypeError:
                 poem_text += "\n"
         roll = random.randint(0, 3)
