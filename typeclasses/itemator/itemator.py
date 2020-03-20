@@ -252,7 +252,7 @@ class Item(DefaultObject):
         textcolor = self.getTextColor()
         self.poemDescription = "A chapbook of poetry. You can |555read|n it if you like."
         poem_name = text_model.make_short_sentence(30)
-        self.poem_name = poem_name.title()
+        poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
         for i in range(60):
             try:
@@ -260,9 +260,10 @@ class Item(DefaultObject):
             except TypeError:
                 poem_text += "ROCKETS! ROCKETS! ROCKETS!"
         poetryCorpusFO.close()
+        self.item_name = poem_name
         self.readable_text = poem_text
         self.item_proto = {
-            "key": self.poem_name,
+            "key": self.item_name,
             "typeclass": "typeclasses.objects.Readable",
             "desc": self.poemDescription,
             "readable_text": self.readable_text,
