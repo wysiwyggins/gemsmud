@@ -208,7 +208,7 @@ class Item(DefaultObject):
                 "cursed": "true",
             }
         else:
-            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + title " displays considerable " + skill + " as it " + verb + " " + theme + "."
+            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + title + " displays considerable " + skill + " as it " + verb + " " + theme + "."
             self.item_proto = {
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",
@@ -262,7 +262,7 @@ class Item(DefaultObject):
                 elif roll == 3:
                     poem_text += "\t\t" + text_model.make_short_sentence(80) + "\n\n"
                 else:
-                    poem_text += "\t\t" + text_model.make_short_sentence(200) + "\n\n"
+                    poem_text += "\t\t" + text_model.make_short_sentence(120) + "\n"
             except TypeError:
                 poem_text += "\n"
         roll = random.randint(0, 3)
