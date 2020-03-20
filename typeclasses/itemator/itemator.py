@@ -249,7 +249,7 @@ class Item(DefaultObject):
         poetryCorpusFO = open(
             "typeclasses/itemator/word_lists/poetry_corpus.txt")
         text = poetryCorpusFO.read()
-        text_model = markovify.NewlineText(text well_formed=False)
+        text_model = markovify.NewlineText(text)
         text_model = text_model.compile()
         thing = self.getTitleTwo()
         textcolor = self.getTextColor()
