@@ -255,8 +255,13 @@ class Item(DefaultObject):
         poem_name = poem_name.title()
         poem_text = "\n" + textcolor + poem_name + "|n\n"
         for i in range(9):
+            roll = random.randint(0, 3)
             try:
                 poem_text += text_model.make_sentence(tries=100) + "\n"
+                if roll == 2:
+                    poem_text += "\n\t" + text_model.make_sentence(tries=100) + "\n\n"
+                elif roll == 3:
+                    poem_name += "\t\t" + text_model.make_short_sentence(30) + "\n\n"
             except TypeError:
                 poem_text += "\n"
         poem_text += "\n\n"
