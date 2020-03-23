@@ -282,7 +282,7 @@ class Item(DefaultObject):
         roll = random.randint(0, 3)
         if roll ==1:
             poem_text += "\n\t\t"
-            poem_text += textcolor + text_model.make_sentence(tries=100) + " " + poem_name +"|n"
+            poem_text += textcolor + text_model.make_sentence(tries=100) + " " + poem_name +".|n"
         poetryCorpusFO.close()
         self.item_name = poem_name
         self.readable_text = poem_text
