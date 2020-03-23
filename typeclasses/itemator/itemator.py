@@ -208,7 +208,7 @@ class Item(DefaultObject):
                 "cursed": "true",
             }
         else:
-            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + title + " displays considerable " + skill + " as it " + verb + " " + theme + "."
+            self.item_description = textcolor + "'" + key + "'|n" + ": \n" + anAdjective + " example of " + artwork + " rendered in " + color + " " + substance + ". " + title + " " + titleTwo + " displays considerable " + skill + " as it " + verb + " " + theme + "."
             self.item_proto = {
                 "key": self.item_key,
                 "typeclass": "typeclasses.objects.Object",

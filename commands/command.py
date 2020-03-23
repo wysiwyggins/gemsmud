@@ -34,6 +34,52 @@ class Command(BaseCommand):
     pass
 
 
+""" 
+# some suggestions/pseudocode for extending the get command to parse multiple objects, so we can get objects out of their containers
+
+class Get(Command):
+
+    key = "get"
+
+    def parse(self):
+        # This is where you want to check if the player enters more arguments than 1, such as "get bread".
+        # If they use "get book from bookcase" then you need to make sure the command knows what to do with that many arguments.
+        # Here, you must split the arguments using "from" as the marker to tell it to split into left and right.
+        # Assign the left argument(arg1) as the "item" or "object" aka "obj" and the right argument(arg2) as the "container".
+
+        # Make sure you are using the "try" and "except" checks as explain in:
+        # https://github.com/evennia/evennia/wiki/Parsing-command-arguments,-theory-and-best-practices
+        # This is also the link to the tutorial that explains command parsing in general.
+
+        # Assign the parsed arguments to variables "obj" and "container" on the command itself.
+        # For Example:
+        obj = search(arg1, container)
+        container = search(arg2, location)
+        
+
+        self.obj = <arg1 >
+        self.container = <arg2 >
+
+    def func(self):
+        # This is where you want to now use the obj and container variables to move the object to your character.
+        # Your character is a container and acts as your inventory.
+
+        # To make things a bit easier to follow, you may want to reassign the self.obj to just obj.
+        obj = self.obj
+        # Same with the bookcase container.
+        container = self.container
+
+        # Now you can move the object.
+        container.obj.move_to(caller, quiet=True)
+
+        # We make the move quiet, because we likely don't want to use the default rendition of what is echoed.
+
+        # Now you can send a message to both the player and the room to acknowledge the move of the book.
+        caller.location.msg_contents(
+            f"{caller.name} gets {obj} from {container}")
+        caller.msg(f"You get {obj} from {container}")
+ """
+
 # -------------------------------------------------------------
 #
 # The default commands inherit from
