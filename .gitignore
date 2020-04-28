@@ -50,3 +50,6 @@ nosetests.xml
 
 # PyCharm config
 .idea
+web/static_overrides/.DS_Store
+web/.DS_Store
+.DS_Store
