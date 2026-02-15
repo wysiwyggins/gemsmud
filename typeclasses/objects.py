@@ -91,6 +91,8 @@ class CmdRead(Command):
             obj = self.obj
         if not obj:
             return
+        # Allow dynamic objects (like Counter) to refresh before reading
+        obj.at_desc(looker=self.caller)
         readtext = obj.db.readable_text
         if readtext:
             string = "You read |C%s|n:\n  %s" % (obj.key, readtext)
