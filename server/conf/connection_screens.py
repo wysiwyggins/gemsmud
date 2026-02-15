@@ -22,14 +22,14 @@ of the screen is done by the unlogged-in "look" command.
 
 from django.conf import settings
 
-CONNECTION_SCREEN = r"""
+CONNECTION_SCREEN = """
 |b==========================================================================|n
 
   |c ___             __   ___  _     _        _
- / __| ___ __ _   / _ \/ __|| |__ (_)___ __| |_ ___
- \__ \/ -_) _` | | (_) \__ \| '_ \| / -_) _|  _(_-<
- |___/\___\__,_|  \___/|___/|_.__// \___\__|\__/__/
-                                |__/                  |n  %s
+ / __│ ___ __ _   / _ ╲/ __│╲ │__ (_)___ __│ │_ ___
+ ╲__ ╲/ -_) _` │ │ (_) ╲__ ╲│ '_ ╲│ / -_) _│  _(_-<
+ │___/╲___╲__,_│  ╲___/│___/│_.__// ╲___╲__│╲__/__/
+                                │__/                  |n  %s
 
   A floating platform. A shared weight limit. A community that must
   decide together what is worth keeping -- or sink.
