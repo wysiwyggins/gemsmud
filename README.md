@@ -18,7 +18,7 @@ evennia migrate
 evennia start
 ```
 
-Connect via MUD client on `192.168.86.24:4000` or web client at `http://192.168.86.24:4001`.
+Connect via MUD client on `gemsmud.city:4000` or web client at `gemsmud.city:4001`.
 
 ## Architecture
 
