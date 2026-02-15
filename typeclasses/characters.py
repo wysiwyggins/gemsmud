@@ -7,34 +7,43 @@ is setup to be the "default" character type created by the default
 creation commands.
 
 """
-from evennia import DefaultCharacter
-from evennia.contrib.clothing import ClothedCharacter
+
+from evennia.contrib.rpg.rpsystem import ContribRPCharacter
+from evennia.contrib.game_systems.clothing import ClothedCharacter
+
+from .objects import ObjectParent
 
 
-class Character(ClothedCharacter):
-    def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
-        return reverse('character:sheet', kwargs={'object_id': self.id})
+class Character(ObjectParent, ContribRPCharacter, ClothedCharacter):
     """
-    The Character defaults to reimplementing some of base Object's hook methods with the
-    following functionality:
-
-    at_basetype_setup - always assigns the DefaultCmdSet to this object type
-                    (important!)sets locks so character cannot be picked up
-                    and its commands only be called by itself, not anyone else.
-                    (to change things, use at_object_creation() instead).
-    at_after_move(source_location) - Launches the "look" command after every move.
-    at_post_unpuppet(account) -  when Account disconnects from the Character, we
-                    store the current location in the pre_logout_location Attribute and
-                    move it to a None-location so the "unpuppeted" character
-                    object does not need to stay on grid. Echoes "Account has disconnected"
-                    to the room.
-    at_pre_puppet - Just before Account re-connects, retrieves the character's
-                    pre_logout_location Attribute and move it back on the grid.
-    at_post_puppet - Echoes "AccountName has entered the game" to the room.
-
+    The Character combines RP system features (sdescs, recogs, poses,
+    emoting) with the clothing system. ContribRPCharacter provides
+    sdesc-based names and RP commands; ClothedCharacter adds wearable
+    clothing to the character description.
     """
 
-    pass
+    def at_object_receive(self, moved_obj, source_location, **kwargs):
+        """Called when an object is moved into this character's inventory."""
+        super().at_object_receive(moved_obj, source_location, **kwargs)
 
-    
+        # If the received object is cursed, attach CurseEffectScript
+        if moved_obj.db.cursed:
+            existing = self.scripts.get("curse_effect")
+            if not existing:
+                from evennia import create_script
+
+                create_script(
+                    "typeclasses.scripts.CurseEffectScript",
+                    key="curse_effect",
+                    obj=self,
+                    persistent=True,
+                )
+
+    def at_object_leave(self, moved_obj, target_location, **kwargs):
+        """Stamp last_holder when an item leaves inventory for a room."""
+        super().at_object_leave(moved_obj, target_location, **kwargs)
+        # Only stamp if the item is being dropped into a room
+        if target_location and target_location.is_typeclass(
+            "typeclasses.rooms.Room", exact=False
+        ):
+            moved_obj.db.last_holder = self

@@ -12,51 +12,64 @@ to be modified.
 
 """
 
-from evennia import DefaultChannel
+from evennia.comms.comms import DefaultChannel
 
 
 class Channel(DefaultChannel):
     """
-    Working methods:
-        at_channel_creation() - called once, when the channel is created
-        has_connection(account) - check if the given account listens to this channel
-        connect(account) - connect account to this channel
-        disconnect(account) - disconnect account from channel
-        access(access_obj, access_type='listen', default=False) - check the
-                    access on this channel (default access_type is listen)
-        delete() - delete this channel
-        message_transform(msg, emit=False, prefix=True,
-                          sender_strings=None, external=False) - called by
-                          the comm system and triggers the hooks below
-        msg(msgobj, header=None, senders=None, sender_strings=None,
-            persistent=None, online=False, emit=False, external=False) - main
-                send method, builds and sends a new message to channel.
-        tempmsg(msg, header=None, senders=None) - wrapper for sending non-persistent
-                messages.
-        distribute_message(msg, online=False) - send a message to all
-                connected accounts on channel, optionally sending only
-                to accounts that are currently online (optimized for very large sends)
-
-    Useful hooks:
-        channel_prefix(msg, emit=False) - how the channel should be
-                  prefixed when returning to user. Returns a string
-        format_senders(senders) - should return how to display multiple
-                senders to a channel
-        pose_transform(msg, sender_string) - should detect if the
-                sender is posing, and if so, modify the string
-        format_external(msg, senders, emit=False) - format messages sent
-                from outside the game, like from IRC
-        format_message(msg, emit=False) - format the message body before
-                displaying it to the user. 'emit' generally means that the
-                message should not be displayed with the sender's name.
-
-        pre_join_channel(joiner) - if returning False, abort join
-        post_join_channel(joiner) - called right after successful join
-        pre_leave_channel(leaver) - if returning False, abort leave
-        post_leave_channel(leaver) - called right after successful leave
-        pre_send_message(msg) - runs just before a message is sent to channel
-        post_send_message(msg) - called just after message was sent to channel
-
+    Base channel class for the game.
     """
 
     pass
+
+
+class LaserChannel(DefaultChannel):
+    """
+    A channel that only distributes messages to characters currently
+    in the Laser room. Used as the game-side endpoint for the IRC bridge.
+    """
+
+    def at_channel_creation(self):
+        """Cache the Laser room reference."""
+        self.db.laser_room = None
+
+    def get_laser_room(self):
+        """Return the Laser room object, caching it on first lookup."""
+        if not self.db.laser_room:
+            from evennia.utils.search import search_object
+
+            results = search_object(
+                "Laser", typeclass="typeclasses.rooms.LaserRoom"
+            )
+            if not results:
+                # Fall back to name search across all rooms
+                results = search_object("Laser")
+            if results:
+                self.db.laser_room = results[0]
+        return self.db.laser_room
+
+    def distribute_message(self, msg, online=False):
+        """
+        Override to only deliver messages to accounts whose character
+        is currently in the Laser room.
+        """
+        room = self.get_laser_room()
+        if not room:
+            return
+
+        for obj in room.contents:
+            account = getattr(obj, "account", None)
+            if account and self.has_connection(account):
+                if online and not account.sessions.count():
+                    continue
+                account.msg(msg)
+
+    def format_external(self, msg, senders, emit=False):
+        """Format messages arriving from IRC."""
+        if senders:
+            return f"|c[|yIRC|c]|n {senders}: {msg}"
+        return f"|c[|yIRC|c]|n {msg}"
+
+    def channel_prefix(self, msg=None, emit=False):
+        """No prefix for this channel — the room context is enough."""
+        return ""

@@ -15,11 +15,16 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 """
 
 from evennia import default_cmds
-from evennia.contrib import extended_room
-from evennia.contrib import mail
-import typeclasses.hybrid_room
-from evennia.contrib.clothing import ClothedCharacterCmdSet
-from evennia.contrib.building_menu import GenericBuildingCmd
+from evennia.contrib.grid import simpledoor
+from evennia.contrib.grid.extended_room import ExtendedRoomCmdSet
+from evennia.contrib.rpg.rpsystem import RPSystemCmdSet
+from evennia.contrib.game_systems.clothing import ClothedCharacterCmdSet
+
+from commands.command import (
+    CmdAutoMultimatch, CmdGet, CmdGift, CmdAcceptGift, CmdRejectGift,
+    CmdAsh, CmdReport, CmdInventory,
+)
+
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -35,10 +40,18 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         Populates the cmdset
         """
         super().at_cmdset_creation()
-        #
-        # any commands you add below will overload the default ones.
-        self.add(GenericBuildingCmd())
+        self.add(simpledoor.SimpleDoorCmdSet)
+        self.add(RPSystemCmdSet)
         self.add(ClothedCharacterCmdSet)
+        self.add(ExtendedRoomCmdSet)
+        self.add(CmdGet())
+        self.add(CmdAutoMultimatch())
+        self.add(CmdGift())
+        self.add(CmdAcceptGift())
+        self.add(CmdRejectGift())
+        self.add(CmdAsh())
+        self.add(CmdReport())
+        self.add(CmdInventory())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
@@ -59,7 +72,6 @@ class AccountCmdSet(default_cmds.AccountCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-        self.add(mail.CmdMail())
 
 
 class UnloggedinCmdSet(default_cmds.UnloggedinCmdSet):
@@ -97,8 +109,6 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         It prints some info.
         """
         super().at_cmdset_creation()
-        self.add(extended_room.ExtendedRoomCmdSet)
         #
         # any commands you add below will overload the default ones.
         #
-
