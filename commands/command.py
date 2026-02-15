@@ -74,6 +74,7 @@ class CmdGift(BaseCommand):
     """
 
     key = "gift"
+    help_category = "Social"
     locks = "cmd:all()"
 
     def func(self):
@@ -155,6 +156,7 @@ class CmdAcceptGift(BaseCommand):
     """
 
     key = "accept"
+    help_category = "Social"
     locks = "cmd:all()"
 
     def func(self):
@@ -199,6 +201,7 @@ class CmdRejectGift(BaseCommand):
     """
 
     key = "reject"
+    help_category = "Social"
     locks = "cmd:all()"
 
     def func(self):
@@ -249,11 +252,80 @@ class CmdAsh(BaseCommand):
     """
 
     key = "ash"
+    help_category = "Economy"
     locks = "cmd:all()"
 
     def func(self):
         tokens = self.caller.db.ash_tokens or 0
         self.caller.msg(f"You have {tokens} ash.")
+
+
+class CmdScore(BaseCommand):
+    """
+    View your personal status summary.
+
+    Shows your ash balance, item count, hoarding standing,
+    and the current platform danger level.
+
+    Usage:
+      score
+      status
+    """
+
+    key = "score"
+    aliases = ["status"]
+    help_category = "General"
+    locks = "cmd:all()"
+
+    def func(self):
+        from django.conf import settings as conf
+        from world.zone_monitor import (
+            get_item_count,
+            get_danger_level,
+            get_player_item_count,
+        )
+
+        caller = self.caller
+        ash = caller.db.ash_tokens or 0
+        items_carried = len(caller.contents)
+        total_items = get_player_item_count(caller)
+        offenses = caller.db.hoarding_offenses or 0
+        under_inv = caller.db.under_investigation or False
+
+        count = get_item_count()
+        level, _, limit = get_danger_level(count)
+
+        level_colors = {
+            "safe": "|g",
+            "warning": "|y",
+            "critical": "|500",
+            "sinking": "|[500|555",
+        }
+        color = level_colors.get(level, "|n")
+
+        minor_thresh = getattr(conf, "HOARDING_MINOR_THRESHOLD", 10)
+        if under_inv:
+            standing = "|500UNDER INVESTIGATION|n"
+        elif offenses > 0:
+            standing = f"|y{offenses} offense(s)|n"
+        elif total_items >= minor_thresh:
+            standing = "|yAt risk|n"
+        else:
+            standing = "|gClean|n"
+
+        text = (
+            f"\n|b--- Citizen Status ---|n"
+            f"\n Ash balance: |y{ash}|n"
+            f"\n Items carried: {items_carried}"
+            f"\n Total items (incl. shelves): {total_items}"
+            f"\n Hoarding standing: {standing}"
+            f"\n"
+            f"\n|b--- Zone 25 ---|n"
+            f"\n Platform: {color}{level.upper()}|n"
+            f" ({count}/{limit} items)"
+            f"\n"
+        )
+        caller.msg(text)
 
 
 class CmdInventory(default_cmds.MuxCommand):
@@ -304,6 +376,7 @@ class CmdReport(BaseCommand):
     """
 
     key = "report"
+    help_category = "Rules"
     locks = "cmd:all()"
 
     def func(self):

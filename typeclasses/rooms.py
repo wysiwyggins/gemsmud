@@ -124,6 +124,7 @@ class CmdTransmit(Command):
 
     key = "transmit"
     aliases = ["broadcast"]
+    help_category = "Communication"
     locks = "cmd:all()"
 
     def func(self):
@@ -161,6 +162,7 @@ class CmdTune(Command):
     """
 
     key = "tune"
+    help_category = "Communication"
     locks = "cmd:all()"
 
     def func(self):

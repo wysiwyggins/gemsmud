@@ -306,6 +306,7 @@ class CmdBrowse(Command):
 
     key = "browse"
     aliases = ["shop"]
+    help_category = "Economy"
     locks = "cmd:all()"
 
     def func(self):
@@ -328,6 +329,7 @@ class CmdBuy(Command):
     """
 
     key = "buy"
+    help_category = "Economy"
     locks = "cmd:all()"
 
     def func(self):
@@ -390,6 +392,7 @@ class CmdSell(Command):
     """
 
     key = "sell"
+    help_category = "Economy"
     locks = "cmd:all()"
 
     def func(self):

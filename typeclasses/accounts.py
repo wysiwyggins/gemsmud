@@ -136,7 +136,43 @@ class Account(DefaultAccount):
 
     """
 
-    pass
+    def at_post_login(self, session=None, **kwargs):
+        """Called after a successful login. Show platform status."""
+        super().at_post_login(session=session, **kwargs)
+
+        # Get the character being puppeted
+        puppet = self.get_puppet(session)
+        if not puppet:
+            return
+
+        from world.zone_monitor import get_item_count, get_danger_level
+
+        count = get_item_count()
+        level, _, limit = get_danger_level(count)
+        ash = puppet.db.ash_tokens or 0
+
+        level_colors = {
+            "safe": "|g",
+            "warning": "|y",
+            "critical": "|500",
+            "sinking": "|[500|555",
+        }
+        color = level_colors.get(level, "|n")
+
+        status = (
+            f"\n|b--- Zone 25 Status ---|n"
+            f"\n Platform: {color}{level.upper()}|n"
+            f" ({count}/{limit} items)"
+            f"\n Ash balance: |y{ash}|n"
+            f"\n|555Type |whelp getting started|555 if you're new.|n\n"
+        )
+        self.msg(status, session=session)
+
+    def at_post_create_character(self, character, **kwargs):
+        """Called after a new character is created. Initialize attributes."""
+        super().at_post_create_character(character, **kwargs)
+        character.db.ash_tokens = 0
+        character.db.hoarding_offenses = 0
 
 
 class Guest(DefaultGuest):

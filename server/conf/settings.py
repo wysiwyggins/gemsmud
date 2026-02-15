@@ -41,6 +41,10 @@ if _SERVER_LIB not in sys.path:
 SERVERNAME = "Sea of Objects"
 GAME_SLOGAN = "v1.0"
 
+# New characters start in the Welcome area
+START_LOCATION = "#4"
+DEFAULT_HOME = "#4"
+
 ######################################################################
 # Zone 25 platform limits
 ######################################################################

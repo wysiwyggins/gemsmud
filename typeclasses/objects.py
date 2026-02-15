@@ -82,6 +82,7 @@ class CmdRead(Command):
     """
 
     key = "read"
+    help_category = "General"
     locks = "cmd:all()"
 
     def func(self):
@@ -133,6 +134,7 @@ class CmdEat(Command):
 
     key = "eat"
     aliases = ["consume", "taste"]
+    help_category = "General"
     locks = "cmd:all()"
 
     def func(self):
@@ -200,6 +202,7 @@ class CmdUseDispenser(Command):
 
     key = "use"
     aliases = ["activate", "operate"]
+    help_category = "General"
     locks = "cmd:all()"
 
     def func(self):
@@ -503,6 +506,7 @@ class CmdBurn(Command):
 
     key = "burn"
     aliases = ["incinerate"]
+    help_category = "Economy"
     locks = "cmd:all()"
 
     def func(self):
@@ -633,6 +637,7 @@ class CmdUseItemator(Command):
 
     key = "use"
     aliases = ["activate", "operate"]
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):
@@ -814,6 +819,7 @@ class CmdCombine(Command):
 
     key = "combine"
     aliases = ["craft", "mix"]
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):
@@ -960,6 +966,7 @@ class CmdClaim(Command):
     """
 
     key = "claim"
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):
@@ -995,6 +1002,7 @@ class CmdUnclaim(Command):
     """
 
     key = "unclaim"
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):
@@ -1033,6 +1041,7 @@ class CmdDisplay(Command):
     """
 
     key = "display"
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):
@@ -1094,6 +1103,7 @@ class CmdRetrieve(Command):
     """
 
     key = "retrieve"
+    help_category = "Game Systems"
     locks = "cmd:all()"
 
     def func(self):

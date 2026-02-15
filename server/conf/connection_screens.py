@@ -22,19 +22,28 @@ of the screen is done by the unlogged-in "look" command.
 
 from django.conf import settings
 
-from evennia import utils
-
 CONNECTION_SCREEN = """
-|b==============================================================|n
- Welcome to |g{}|n, version {}!
+|b==========================================================================|n
 
- If you have an existing account, connect to it by typing:
-      |wconnect <username> <password>|n
- If you need to create an account, type (without the <>'s):
-      |wcreate <username> <password>|n
+  |c ___             __   ___  _     _        _
+ / __| ___ __ _   / _ \/ __|| |__ (_)___ __| |_ ___
+ \\__ \\/ -_) _` | | (_) \\__ \\| '_ \\| / -_) _|  _(_-<
+ |___/\\___\\__,_|  \\___/|___/|_.__// \\___\\__|\\__/__/
+                                |__/                  |n  {slogan}
 
- If you have spaces in your username, enclose it in quotes.
- Enter |whelp|n for more info. |wlook|n will re-show this screen.
-|b==============================================================|n""".format(
-    settings.SERVERNAME, utils.get_evennia_version("short")
+  A floating platform. A shared weight limit. A community that must
+  decide together what is worth keeping -- or sink.
+
+|b--------------------------------------------------------------------------|n
+
+  If you have an existing account, connect to it by typing:
+       |wconnect <username> <password>|n
+  If you need to create an account, type (without the <>'s):
+       |wcreate <username> <password>|n
+
+  If you have spaces in your username, enclose it in quotes.
+  Enter |whelp|n for more info. |wlook|n will re-show this screen.
+
+|b==========================================================================|n""".format(
+    slogan=settings.GAME_SLOGAN,
 )
