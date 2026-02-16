@@ -2,50 +2,34 @@
 
 .landing-splash {
     max-width: 600px;
-    border-radius: 6px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
     margin-top: 1rem;
 }
 
 .landing-tagline {
-    font-size: 1.2rem;
-    color: #556;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.05rem;
+    color: #7a7490;
     margin: 1rem 0 1.5rem;
-    font-style: italic;
+    letter-spacing: 0.02em;
 }
 
 .landing-play-btn {
-    background: linear-gradient(to bottom, #6aafdf 5%, #3d7db8 100%);
-    box-shadow: 0 1px 8px 3px rgba(90, 159, 212, 0.4);
-    color: #fff !important;
-    border: 1px solid #3a6d96;
-    padding: 0.75rem 2.5rem;
-    font-size: 1.15rem;
-    border-radius: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    background-color: #e48ac2;
+    color: #0e0c18 !important;
+    border: none;
+    padding: 0.7rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 3px;
     text-decoration: none !important;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background-color 0.15s ease;
 }
 
 .landing-play-btn:hover {
-    background: linear-gradient(to bottom, #3d7db8 5%, #6aafdf 100%);
-    color: #fff !important;
+    background-color: #f0b0d8;
+    color: #0e0c18 !important;
     text-decoration: none !important;
-}
-
-.landing-play-btn:active {
-    position: relative;
-    top: 1px;
-}
-
-/* Card styling for stats widgets */
-.card {
-    background-color: #fff;
-    border: none;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-    background-color: #3d5c7a;
-    color: #fff;
-    border-bottom: none;
 }

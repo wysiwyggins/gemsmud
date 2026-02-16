@@ -1,0 +1,128 @@
+/* Sea of Objects — site-wide theme
+   Loaded by base.html after website.css, overrides defaults. */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600&display=swap');
+
+/* ── Base ── */
+
+body {
+    background-color: #0e0c18;
+    color: #c8c4d6;
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    color: #e48ac2;
+}
+
+a:hover {
+    color: #f0b0d8;
+}
+
+hr {
+    border-color: #2a2540;
+}
+
+/* ── Navbar ── */
+
+.navbar {
+    background-color: #16122a;
+    border-bottom: 1px solid #2a2540;
+}
+
+.navbar a,
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .dropdown-item {
+    color: #c8c4d6 !important;
+}
+
+.navbar a:hover,
+.navbar .nav-link:hover {
+    color: #e48ac2 !important;
+}
+
+.navbar-brand small {
+    color: #7a7490 !important;
+}
+
+.dropdown-menu {
+    background-color: #1e1a34;
+    border: 1px solid #2a2540;
+}
+
+.dropdown-item:hover {
+    background-color: #2a2540;
+}
+
+/* ── Footer ── */
+
+.footer {
+    background-color: #16122a;
+    border-top: 1px solid #2a2540;
+}
+
+.footer span,
+.footer a {
+    color: #7a7490 !important;
+}
+
+.footer a:hover {
+    color: #e48ac2 !important;
+}
+
+/* ── Cards (stats widgets, etc.) ── */
+
+.card {
+    background-color: #1a1630;
+    border: 1px solid #2a2540;
+    color: #c8c4d6;
+}
+
+.card-header {
+    background-color: #221e3a;
+    color: #c8c4d6;
+    border-bottom: 1px solid #2a2540;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+.card-body {
+    color: #a09cb4;
+}
+
+.list-group-item {
+    background-color: #1a1630;
+    border-color: #2a2540;
+    color: #a09cb4;
+}
+
+/* ── Main content area ── */
+
+.main-content {
+    background-color: transparent;
+}
+
+/* ── Buttons ── */
+
+.btn-primary {
+    background-color: #e48ac2;
+    border-color: #d070aa;
+    color: #0e0c18;
+}
+
+.btn-primary:hover {
+    background-color: #d070aa;
+    border-color: #c060a0;
+    color: #0e0c18;
+}
+
+/* ── Alerts ── */
+
+.alert {
+    background-color: #1e1a34;
+    border-color: #2a2540;
+    color: #c8c4d6;
+}
