@@ -42,7 +42,7 @@ hr {
     color: #e48ac2 !important;
 }
 
-.navbar-brand small {
+.navbar-brand small, pre {
     color: #7a7490 !important;
 }
 
