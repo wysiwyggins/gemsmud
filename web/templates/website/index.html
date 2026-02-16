@@ -1,0 +1,41 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block titleblock %}Home{% endblock %}
+
+{% block header_ext %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero section -->
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10 col-lg-8 text-center">
+    <img src="{% static 'website/images/splash.png' %}"
+         alt="Sea of Objects" class="img-fluid landing-splash mb-3" />
+    <p class="landing-tagline">
+      A community that must decide together what is worth keeping &mdash; or sink.
+    </p>
+    {% if webclient_enabled %}
+    <a href="{% url 'webclient:index' %}" class="btn btn-lg landing-play-btn mb-4">
+      Play Online
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<hr/>
+
+<!-- Stats widgets -->
+<div class="row">
+  <div class="col-12 col-md-4 mb-3">
+    {% include "website/homepage/accounts-widget.html" %}
+  </div>
+  <div class="col-12 col-md-4 mb-3">
+    {% include "website/homepage/recently-connected-widget.html" %}
+  </div>
+  <div class="col-12 col-md-4 mb-3">
+    {% include "website/homepage/database-stats-widget.html" %}
+  </div>
+</div>
+{% endblock %}
