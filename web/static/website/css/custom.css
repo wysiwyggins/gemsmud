@@ -42,7 +42,7 @@ hr {
     color: #e48ac2 !important;
 }
 
-.navbar-brand small, pre {
+.navbar-brand small {
     color: #7a7490 !important;
 }
 
@@ -125,4 +125,11 @@ hr {
     background-color: #1e1a34;
     border-color: #2a2540;
     color: #c8c4d6;
+}
+
+pre,
+code,
+kbd,
+samp {
+    color: #c8c4d6 !important;
 }
