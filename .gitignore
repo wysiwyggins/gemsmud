@@ -30,6 +30,11 @@ __pycache__
 server/conf/secret_settings.py
 server/logs/*.log.*
 web/static/*
+!web/static/website/
+!web/static/website/css/
+!web/static/website/css/*.css
+!web/static/website/images/
+!web/static/website/images/*.png
 web/media/*
 
 # Installer logs
