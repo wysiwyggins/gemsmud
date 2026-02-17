@@ -1,0 +1,127 @@
+#
+# Batch command file: Create 6 new apartments with display shelves.
+#
+# Run from inside the game with:
+#   @batchcommand world.batch_apartments
+#
+# This retypeclasses the 6 existing apartments, then creates
+# apartments 104-106 in the Eastern complex (#109) and
+# 204-206 in the Western complex (#127), each with a display shelf.
+#
+
+#
+# --- Retypeclass existing apartments ---
+#
+@typeclass #112 = typeclasses.rooms.Apartment
+#
+@typeclass #117 = typeclasses.rooms.Apartment
+#
+@typeclass #267 = typeclasses.rooms.Apartment
+#
+@typeclass #130 = typeclasses.rooms.Apartment
+#
+@typeclass #133 = typeclasses.rooms.Apartment
+#
+@typeclass #315 = typeclasses.rooms.Apartment
+#
+
+#
+# --- Eastern complex: apartment 104 ---
+#
+@tel #109
+#
+@dig 104;room104 : typeclasses.rooms.Apartment = 104;room104, exit;out
+#
+@tel 104
+#
+@desc A compact studio apartment. A narrow cot is pushed against one wall. Faded postcards of faraway places are pinned above it in overlapping rows. A |555display shelf|n is mounted by the door. The air smells faintly of instant coffee.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A simple wall-mounted shelf with three metal brackets. It looks sturdy enough.
+#
+
+#
+# --- Eastern complex: apartment 105 ---
+#
+@tel #109
+#
+@dig 105;room105 : typeclasses.rooms.Apartment = 105;room105, exit;out
+#
+@tel 105
+#
+@desc A one-bedroom apartment. Every surface is covered in handwritten notes and sketches. String connects pushpins on a corkboard wall in some kind of elaborate diagram. A |555display shelf|n leans against the far wall.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A shelf cobbled together from reclaimed platform decking. Rough but functional.
+#
+
+#
+# --- Eastern complex: apartment 106 ---
+#
+@tel #109
+#
+@dig 106;room106 : typeclasses.rooms.Apartment = 106;room106, exit;out
+#
+@tel 106
+#
+@desc A bright, bare apartment. The walls have been scrubbed spotless. A single potted succulent sits on the windowsill. Someone has arranged three smooth stones on the floor in a deliberate triangle. A |555display shelf|n hangs near the entrance.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A clean glass shelf bolted to the wall. It catches the light.
+#
+
+#
+# --- Western complex: apartment 204 ---
+#
+@tel #127
+#
+@dig 204;room204 : typeclasses.rooms.Apartment = 204;room204, exit;out
+#
+@tel 204
+#
+@desc A two-room apartment. The main room is dominated by a battered sofa draped in a quilt. Empty mugs crowd every flat surface. A half-finished jigsaw puzzle covers the coffee table. A |555display shelf|n is wedged between the sofa and the wall.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A squat wooden shelf, its edges rounded from years of use.
+#
+
+#
+# --- Western complex: apartment 205 ---
+#
+@tel #127
+#
+@dig 205;room205 : typeclasses.rooms.Apartment = 205;room205, exit;out
+#
+@tel 205
+#
+@desc A narrow apartment. The ceiling is unusually high, making the room feel like a corridor turned sideways. Someone has hung wind chimes from the overhead pipes. A |555display shelf|n is mounted beside the door frame.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A slim metal shelf that juts out from the wall at a slight angle.
+#
+
+#
+# --- Western complex: apartment 206 ---
+#
+@tel #127
+#
+@dig 206;room206 : typeclasses.rooms.Apartment = 206;room206, exit;out
+#
+@tel 206
+#
+@desc A spacious corner apartment with views from two portholes. The floor is covered in mismatched rugs layered three deep. A hammock is strung between support beams. A |555display shelf|n occupies the space under the lower porthole.
+#
+@create/drop display shelf : typeclasses.objects.DisplayShelf
+#
+@desc display shelf = A wide shelf made of driftwood, sanded smooth and varnished.
+#
+
+#
+# Done. Return to Welcome area.
+#
+@tel #4

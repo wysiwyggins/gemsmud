@@ -353,8 +353,8 @@ HELP_ENTRY_DICTS = [
         "aliases": ["apartment", "home", "go home", "claim apartment"],
         "category": "Game Systems",
         "text": """
-            Six apartments are available across the Eastern and Western
-            complexes. Players can claim one apartment as their home.
+            Apartments are located in the Eastern and Western complexes.
+            Players can claim one apartment as their home.
 
             # Claiming
 
@@ -368,11 +368,6 @@ HELP_ENTRY_DICTS = [
 
               go home        - Teleport to your claimed apartment from anywhere
               home           - Same as above
-
-            # Apartment locations
-
-              Eastern complex: 101, 102, 103
-              Western complex: 201, 202, 203
         """,
     },
     # ------------------------------------------------------------------
