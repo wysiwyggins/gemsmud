@@ -173,6 +173,7 @@ class Account(DefaultAccount):
         super().at_post_create_character(character, **kwargs)
         character.db.ash_tokens = 0
         character.db.hoarding_offenses = 0
+        character.db.apartment = None
 
 
 class Guest(DefaultGuest):

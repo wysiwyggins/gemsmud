@@ -328,6 +328,48 @@ class CmdScore(BaseCommand):
         caller.msg(text)
 
 
+class CmdGoHome(BaseCommand):
+    """
+    Teleport to your claimed apartment.
+
+    Usage:
+      go home
+      home
+    """
+
+    key = "go home"
+    aliases = ["home"]
+    help_category = "Navigation"
+    locks = "cmd:all()"
+
+    def func(self):
+        apartment = self.caller.db.apartment
+        if not apartment or not apartment.pk:
+            self.caller.msg(
+                "You haven't claimed an apartment yet. "
+                "Find one and use |555claim|n to make it yours."
+            )
+            return
+
+        if self.caller.location == apartment:
+            self.caller.msg("You're already home.")
+            return
+
+        self.caller.msg("You head home.")
+        self.caller.location.msg_contents(
+            "$You() $conj(head) home.",
+            from_obj=self.caller,
+            exclude=[self.caller],
+        )
+        self.caller.move_to(apartment, quiet=True)
+        apartment.msg_contents(
+            f"$You() $conj(arrive) home.",
+            from_obj=self.caller,
+            exclude=[self.caller],
+        )
+        self.caller.msg(self.caller.at_look(apartment))
+
+
 class CmdInventory(default_cmds.MuxCommand):
     """
     View your inventory and ash balance.

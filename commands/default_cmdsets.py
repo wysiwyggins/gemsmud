@@ -22,7 +22,7 @@ from evennia.contrib.game_systems.clothing import ClothedCharacterCmdSet
 
 from commands.command import (
     CmdAutoMultimatch, CmdGet, CmdGift, CmdAcceptGift, CmdRejectGift,
-    CmdAsh, CmdReport, CmdInventory, CmdScore,
+    CmdAsh, CmdReport, CmdInventory, CmdScore, CmdGoHome,
 )
 
 
@@ -53,6 +53,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdReport())
         self.add(CmdInventory())
         self.add(CmdScore())
+        self.add(CmdGoHome())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):

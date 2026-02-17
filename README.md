@@ -121,7 +121,7 @@ Dynamic signs (the `Counter` typeclass) that rebuild their text on every look. T
 
 ### Masterpiece Broadcasts
 
-When a masterpiece is created via any Itemator or Workbench, a server-wide announcement names the item and its location -- but not the creator. This drives social interaction: players race to find, claim, trade, or gift masterpieces.
+When a masterpiece is created via any Itemator or Workbench, a server-wide announcement names the item and its location but not the creator.
 
 ### IRC Bridge (Laser Room)
 

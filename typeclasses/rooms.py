@@ -205,6 +205,118 @@ class CmdSetLaserRoom(CmdSet):
         self.add(CmdTune())
 
 
+# -------------------------------------------------------------
+# Apartments (player-claimable rooms)
+# -------------------------------------------------------------
+
+
+class CmdClaimApartment(Command):
+    """
+    Claim this apartment as your home.
+
+    Usage:
+      claim
+
+    Only one apartment per player. Claiming a new apartment
+    releases your previous one automatically.
+    """
+
+    key = "claim"
+    help_category = "Game Systems"
+    locks = "cmd:all()"
+
+    def func(self):
+        room = self.obj
+        owner = room.db.apartment_owner
+
+        if owner and owner.pk:
+            if owner == self.caller:
+                self.caller.msg("You already own this apartment.")
+            else:
+                self.caller.msg(
+                    f"This apartment is claimed by {owner.key}."
+                )
+            return
+
+        # Release any previously claimed apartment
+        old_apartment = self.caller.db.apartment
+        if old_apartment and old_apartment.pk:
+            old_apartment.db.apartment_owner = None
+
+        room.db.apartment_owner = self.caller
+        self.caller.db.apartment = room
+        self.caller.msg("You claim this apartment as your home.")
+        self.caller.location.msg_contents(
+            "$You() $conj(claim) this apartment.",
+            from_obj=self.caller,
+            exclude=[self.caller],
+        )
+
+
+class CmdUnclaimApartment(Command):
+    """
+    Release your claim on this apartment.
+
+    Usage:
+      unclaim
+    """
+
+    key = "unclaim"
+    help_category = "Game Systems"
+    locks = "cmd:all()"
+
+    def func(self):
+        room = self.obj
+        owner = room.db.apartment_owner
+
+        if not owner or not owner.pk:
+            self.caller.msg("This apartment is not claimed by anyone.")
+            return
+
+        if owner != self.caller:
+            self.caller.msg(
+                f"This apartment belongs to {owner.key}, not you."
+            )
+            return
+
+        room.db.apartment_owner = None
+        self.caller.db.apartment = None
+        self.caller.msg("You release your claim on this apartment.")
+        self.caller.location.msg_contents(
+            "$You() $conj(release) $pron(your) claim on this apartment.",
+            from_obj=self.caller,
+            exclude=[self.caller],
+        )
+
+
+class CmdSetApartment(CmdSet):
+
+    def at_cmdset_creation(self):
+        self.add(CmdClaimApartment())
+        self.add(CmdUnclaimApartment())
+
+
+class Apartment(Room):
+    """
+    A claimable apartment room. Players can claim one apartment as
+    their home and use 'go home' to teleport back to it.
+    """
+
+    def at_object_creation(self):
+        super().at_object_creation()
+        self.db.apartment_owner = None
+        self.cmdset.add_default(CmdSetApartment, permanent=True)
+
+    def return_appearance(self, looker, **kwargs):
+        appearance = super().return_appearance(looker, **kwargs)
+        owner = self.db.apartment_owner
+        if owner and owner.pk:
+            owner_text = f"\n|555Claimed by:|n {owner.key}"
+        else:
+            owner_text = "\n|555Unclaimed.|n Use |555claim|n to make it yours."
+        return (appearance or "") + owner_text
+
+
 class LaserRoom(ObjectParent, ContribRPRoom):
     """
     The Laser/Archimedes Array room. Functions as an IRC bridge endpoint.

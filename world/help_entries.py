@@ -348,6 +348,33 @@ HELP_ENTRY_DICTS = [
             prevent sinking.
         """,
     },
+    {
+        "key": "apartments",
+        "aliases": ["apartment", "home", "go home", "claim apartment"],
+        "category": "Game Systems",
+        "text": """
+            Six apartments are available across the Eastern and Western
+            complexes. Players can claim one apartment as their home.
+
+            # Claiming
+
+              claim          - Claim the apartment you're standing in
+              unclaim        - Release your claim
+
+            Only one apartment per player. Claiming a new apartment
+            automatically releases your previous one.
+
+            # Going home
+
+              go home        - Teleport to your claimed apartment from anywhere
+              home           - Same as above
+
+            # Apartment locations
+
+              Eastern complex: 101, 102, 103
+              Western complex: 201, 202, 203
+        """,
+    },
     # ------------------------------------------------------------------
     # Rules
     # ------------------------------------------------------------------
